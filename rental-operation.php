@@ -35,6 +35,7 @@ function rental_register() {
             echo "No file was uploaded or there was an upload error.";
             return;
         }
+        //values halne database ma
         $sql="INSERT INTO rental (full_name, email, password, phone_no, address, id_type, id_photo) VALUES ('$full_name', '$email', '$password','$phone_no','$address', '$id_type','$id_photo')";
 
         if(mysqli_query($db,$sql)){
