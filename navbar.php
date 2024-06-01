@@ -21,13 +21,17 @@
       <a class="nav-link" href="index.html" >Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="aboutus.php">About Us</a>
+      <a class="nav-link" href="">About Us</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="contactus.php">Contact Us</a>
+      <a class="nav-link" href="">Contact Us</a>
     </li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
+      <?php 
+      
+if(isset($_SESSION["email"]) && !empty($_SESSION['email'])){
+?>
 <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
         <span class="caret"></span></a>
@@ -39,10 +43,14 @@
       </li>
 
 
+<?php
+  
+}
 
-      <li><a href="rental-register.php"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-      <li><a href="rental-login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+else {?>
+      <li><a href="register_options.php"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+      <li><a href="login_options.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    <?php } ?>
   </div>
 </nav>
 

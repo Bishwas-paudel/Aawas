@@ -1,5 +1,5 @@
 <?php
-include("navbar.html")  ?>
+include("navbar.php")  ?>
  <html>
 <head>
 <link rel="stylesheet" href="style2.css">
@@ -22,14 +22,14 @@ footer {
   display: flex;
   flex-wrap: wrap;
 }
-
-.col-md-4 {
+ 
+.aboutus_section {
   flex: 0 0 calc(33.33% - 20px);
   margin-right: 20px;
   margin-bottom: 40px;
 }
 
-.col-md-4:last-child {
+.aboutus_section:last-child {
   margin-right: 0;
 }
 
@@ -57,12 +57,12 @@ a:hover {
   color: #8C8C8C;
 }
 
-.bottom-bar {
+.copywrite_section {
   background-color: #b3e5fc;
   padding: 10px 0;
 }
 
-.bottom-bar p {
+.copywrite_section p {
   font-size: 1rem;
   margin: 0;
   text-align: center;
@@ -96,11 +96,11 @@ a:hover {
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="aboutus_section">
         <h3>About Us</h3>
         <p>here is our text a</p>
       </div>
-      <div class="col-md-4">
+      <div class="aboutus_section">
         <h3>Quick Links</h3>
         <ul>
           <li><a href="index.php">Home</a></li>
@@ -109,7 +109,7 @@ a:hover {
           <li><a href="#">Contact Us</a></li>
         </ul>
       </div>
-      <div class="col-md-4">
+      <div class="aboutus_section">
         <h3>Get In Touch</h3>
         <ul>
           <li><i class="fas fa-map-marker-alt"></i>Pokhara Nepal</li>
@@ -119,7 +119,7 @@ a:hover {
       </div>
     </div>
   </div>
-  <div class="bottom-bar">
+  <div class="copywrite_section">
     <div class="container">
       <div class="row">
         <div class="col-md-12">

@@ -23,7 +23,7 @@
             <!-- Navbar ko name haru -->
             <ul class="navbar">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="aboutus .php">About Us</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Properties</a></li>
             </ul>

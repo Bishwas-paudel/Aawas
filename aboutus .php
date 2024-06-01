@@ -12,7 +12,7 @@ body {
   padding: 0;
 }
 header {
-  background-color: #4CAF50;
+  background-color:dodgerblue;
   color: white;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@ section {
 }
 
 h2 {
-  color: #4CAF50;
+  color:dodgerblue;
   font-size: 2rem;
   margin-bottom: 20px;
 }
@@ -61,7 +61,7 @@ li {
 
 /* Footer styles */
 footer {
-  background-color: #4CAF50;
+  background-color:dodgerblue;
   color: white;
   display: flex;
   justify-content: center;
@@ -100,7 +100,7 @@ footer p {
       </section>
     </main>
     <footer>
-      <p>&copy; 2023 Rent House Project. All rights reserved.</p>
+      <p>&copy; 2024 Aawas. All rights reserved.</p>
     </footer>
   </body>
 </html>
