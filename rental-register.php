@@ -1,24 +1,27 @@
 <?php 
 
 include("navbar.php");
-$error_msg
+include("rental-operation.php");
+global $error_msg;
  ?>
 
 <div class="container">
   <h3 style="font-weight: bold; text-align: center;">Rental Register</h3><hr><br>
-  <form method="POST" action="rental-operation.php" enctype="multipart/form-data">
+  <form method="POST"  enctype="multipart/form-data">
     <div class="form-group">
       <label for="full_name">Full Name:</label>
       <input type="text" class="form-control" id="full_name" placeholder="Enter Full Name" name="full_name" required>
     </div>
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
-        <?php
-         if ($error_msg): ?>
-                <span style="color:red;"><?php echo $error_msg; ?></span>
-            <?php endif; ?>
-    </div>
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
+    <?php
+    if (isset($_SESSION['error_msg'])): ?>
+        <span style="color:red;"><?php echo $_SESSION['error_msg']; ?></span>
+        <?php unset($_SESSION['error_msg']); // Clear the error message after displaying ?>
+    <?php endif; ?>
+</div>
+
     <div class="form-group">
       <label for="password1">Password:</label>
       <input type="password" class="form-control" id="password1" placeholder="Enter Password" name="password" required>
