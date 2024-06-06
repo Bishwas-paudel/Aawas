@@ -5,18 +5,23 @@
     <!-- Box Icons -site ma use hune icons haru ko lagi -->
     <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <title>About Us - AAWAS</title>
+    <title>Contact Us - Room Rent Project</title>
   <style>
+  
+  /* Global styles */
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
+
+/* Header styles */
 header {
-  background-color:white;
+  background-color:whitesmoke;
   color: white;
   height: 100px;
 }
@@ -25,6 +30,8 @@ header h1 {
   font-size: 3rem;
   margin: 0;
 }
+
+/* Main styles */
 main {
   max-width: 800px;
   margin: 0 auto;
@@ -36,7 +43,7 @@ section {
 }
 
 h2 {
-  color:dodgerblue;
+  color: #4CAF50;
   font-size: 2rem;
   margin-bottom: 20px;
 }
@@ -47,37 +54,44 @@ p {
   color: #555;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
 }
 
-li {
+label {
   font-size: 1.2rem;
-  line-height: 1.5;
+  font-weight: bold;
   color: #555;
-  margin-bottom: 10px;
 }
 
-/* Footer styles */
-footer {
+input,
+textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1.2rem;
+}
+
+button {
   background-color:dodgerblue;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-footer p {
-  font-size: 1.2rem;
-  margin: 0;
+button:hover {
+  background-color:blue;
 }
+
 
   </style>
   </head>
-  <body>'
+  <body>
   <header>
    
       <!-- Navbar section -->
@@ -101,21 +115,23 @@ footer p {
     </header>
     <main>
       <section>
-        <h2>Welcome to our Rent House Project</h2>
-        <p>At our Rent House Project, we aim to provide you with a comfortable and enjoyable living experience in a home that you can truly call your own. Our team is dedicated to providing exceptional service and support to ensure that you have everything you need to feel at home.</p>
+        <h2>Get in touch</h2>
+        <p>Have a question or comment? Please fill out the form below and we will get back to you as soon as possible.</p>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" required>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
       </section>
       <section>
-        <h2>Our Mission</h2>
-        <p>Our mission is to provide you with a wide range of affordable rental options that meet your unique needs and preferences. We believe that everyone deserves a safe and comfortable place to call home, and we work hard to ensure that our properties meet the highest standards of quality and safety.</p>
-      </section>
-      <section>
-        <h2>Our Values</h2>
-        <ul>
-          <li>Quality: We believe in providing the highest quality rental properties that meet the needs and preferences of our tenants.</li>
-          <li>Safety: We prioritize the safety and well-being of our tenants by ensuring that our properties meet all safety standards and regulations.</li>
-          <li>Service: We are committed to providing exceptional service and support to our tenants throughout their rental experience.</li>
-          <li>Community: We believe in creating a sense of community among our tenants by fostering a welcoming and inclusive environment.</li>
-        </ul>
+        <h2 style="color:dodgerblue">Our Location</h2>
+        <p>You can find us at the following address:</p>
       </section>
     </main>
     <footer>

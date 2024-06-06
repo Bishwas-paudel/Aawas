@@ -20,7 +20,7 @@ include("navbar.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <!-- LInk To CSS -->
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <!-- Box Icons -->
     <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -35,7 +35,7 @@ include("navbar.php");
                     <p>If you want to sign in as a rental click on rental login button otherwise click on owner login button.</p><br><br>
                     <a href="rental-login.php"><button type="submit" class="btn btn-info"   style="width:200px;">Rental Login</button></a>
                     <a href='owner-login.php'><button type="submit" class="btn btn-info"   style="width:200px;">Owner Login</button></a>
-                   <a href="admin-login.php"> <button type="submit" class="btn btn-info"  style="width:200px;">Admin_login</button></a>
+                   <a href="admin-login.php"> <button type="submit" class="btn btn-info"  style="width:200px;">Admin Login</button></a>
                 </div>
                 
             </div>

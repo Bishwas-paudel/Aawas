@@ -6,7 +6,7 @@ include("navbar.php");
 
 <div class="container">
   <h3 style="font-weight: bold; text-align: center;">Owner Register</h3><hr><br>
-  <form method="POST" action="owner-engine.php" enctype="multipart/form-data">
+  <form method="POST" action="owner-operation.php" enctype="multipart/form-data">
     <div class="form-group">
       <label for="full_name">Full Name:</label>
       <input type="text" class="form-control" id="full_name" placeholder="Enter Full Name" name="full_name" required>

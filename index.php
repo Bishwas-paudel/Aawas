@@ -28,7 +28,7 @@
                 <li><a href="#">Properties</a></li>
             </ul>
             <!-- Login button  -->
-            <a href="rental-login.php" class="btn">Log In</a>
+            <a href="login_options.php" class="btn">Log In</a>
         </div>
 
     </header>
