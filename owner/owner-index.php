@@ -27,7 +27,7 @@ include("engine.php");
   </ul>
 
   <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
+  <div id="home" class="tab-pane fade in active">
       <center><h3>Owner Profile</h3></center>
       <div class="container">
       <?php 
@@ -70,28 +70,28 @@ include("engine.php");
             <form method="POST">
                 <div class="form-group">
                   <label for="full_name">Full Name:</label>
-                  <input type="hidden" value="<?php echo $rows['owner_id']; ?>" name="owner_id">
-                  <input type="text" class="form-control" id="full_name" value="<?php echo $rows['full_name']; ?>" name="full_name">
+                  <input type="hidden" value="<?php echo $rows['owner_id']; ?>" name="owner_id" >
+                  <input type="text" class="form-control" id="full_name" value="<?php echo $rows['full_name']; ?>" name="full_name" required >
                 </div>
                 <div class="form-group">
                   <label for="email">Email:</label>
-                  <input type="email" class="form-control" id="email" value="<?php echo $rows['email']; ?>" name="email" readonly>
+                  <input type="email" class="form-control" id="email" value="<?php echo $rows['email']; ?>" name="email" readonly required>
                 </div>
                 <div class="form-group">
                   <label for="phone_no">Phone No.:</label>
-                  <input type="text" class="form-control" id="phone_no" value="<?php echo $rows['phone_no']; ?>" name="phone_no">
+                  <input type="text" class="form-control" id="phone_no" value="<?php echo $rows['phone_no']; ?>" name="phone_no" required>
                 </div>
                 <div class="form-group">
                   <label for="address">Address:</label>
-                  <input type="text" class="form-control" id="address" value="<?php echo $rows['address']; ?>" name="address">
+                  <input type="text" class="form-control" id="address" value="<?php echo $rows['address']; ?>" name="address" required>
                 </div>
                 <div class="form-group">
       <label for="id_type">Type of ID:</label>
-      <input type="text" class="form-control" value="<?php echo $rows['id_type']; ?>" name="id_type" readonly>
+      <input type="text" class="form-control" value="<?php echo $rows['id_type']; ?>" name="id_type" readonly required>
     </div>
     <div class="form-group">
       <label>Your Id:</label><br>
-      <img src="../images<?php echo $rows['id_photo']; ?>" id="output_image/" height="100px" readonly>
+      <img src="../images<?php echo $rows['id_photo']; ?>" id="output_image/" height="100px" readonly >
     </div>
                 <hr>
                 <center><button id="submit" name="owner_update" class="btn btn-primary btn-block">Update</button></center><br>
@@ -110,6 +110,14 @@ include("engine.php");
 </div>
     </div>
     </div>
+
+
+
+
+
+
+
+
 
     <div id="menu4" class="tab-pane fade">
       <div class="container">
@@ -168,9 +176,19 @@ include("engine.php");
 
 
 
+    <?php 
+        include("../connection/connection.php");
+        global $db;
+        $u_email= $_SESSION["email"];
 
+        $sql="SELECT * from owner where email='$u_email'";
+        $result=mysqli_query($db,$sql);
 
-
+        if(mysqli_num_rows($result)>0)
+      {
+          while($rows=mysqli_fetch_assoc($result)){
+          
+       ?>
 
     <div id="menu1" class="tab-pane fade">
       <center><h3>Add Property</h3></center>
@@ -183,17 +201,14 @@ include("engine.php");
         <div class="col-sm-6">
             <div class="form-group">
               <label for="city">City:</label>
-              <select class="form-control" name="city">
-                      <option value="" >--Select city--</option>
-                      <option value="Pokhara">Pokhara</option>
-                      <option value="Kathmandu">Kathmandu</option>
-                      <option value="Bhaktapur">Bhaktapur</option>
+              <select class="form-control" name="city" required>
+                      <option value=""  >--Select city--</option>
+                      <option value="Pokhara">Pokhara </option>
                 </select>
-              <!-- <input type="text" class="form-control" id="city" placeholder="Enter City" name="city"> -->
             </div>
             <div class="form-group">
               <label for="ward_no">Ward No.:</label>
-              <select class="form-control" name="ward_no">
+              <select class="form-control" name="ward_no" required>
                       <option value="" >--Select Ward No--</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -231,9 +246,16 @@ include("engine.php");
                 </select>
               <!-- <input type="text" class="form-control" id="ward_no" placeholder="Enter Ward No." name="ward_no"> -->
             </div>
+
+
+
+
+
+
+
             <div class="form-group">
               <label for="Area">Area:</label>
-              <select class="form-control" name="Area">
+              <select class="form-control" name="Area" required>
                       <option value="" >--Select Area--</option>
                       <option value="Airport Area">Airport Area</option>
                       <option value="Archalbot Area">Archalbot Area</option>
@@ -264,15 +286,15 @@ include("engine.php");
             </div>
             <div class="form-group">
               <label for="Street No">Street No:</label>
-              <input type="number" class="form-control" id="Street" placeholder="Enter Street No" name="Street" min=1>
+              <input type="number" class="form-control" id="Street" placeholder="Enter Street No" name="Street" min=1 required>
             </div>
             <div class="form-group">
               <label for="contact_no">Contact No.:</label>
-              <input type="text" class="form-control" id="contact_no" placeholder="Enter Contact No." name="contact_no">
+              <input type="text" class="form-control" id="contact_no" placeholder="Enter Contact No." name="contact_no" value="<?php echo $rows['phone_no']; ?>" required>
             </div>
             <div class="form-group">
                <label for="property_type">Property Type:</label>
-                <select class="form-control" name="property_type">
+                <select class="form-control" name="property_type" required>
                       <option value="">--Select Property Type--</option>
                       <option value="Full House Rent">Full House Rent</option>
                       <option value="Flat Rent">Flat Rent</option>
@@ -281,31 +303,31 @@ include("engine.php");
             </div>                      
             <div class="form-group">
                 <label for="estimated_price">Estimated Price:</label>
-                <input type="estimated_price" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="estimated_price" min=100>
+                <input type="estimated_price" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="estimated_price" min=100 required>
             </div>
         </div>
 
         <div class="col-sm-6">
                   <div class="form-group">
                     <label for="total_rooms">Total No. of Rooms:</label>
-                    <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms" min=1>
+                    <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms" min=1 required>
                   </div>
                   <div class="form-group">
                     <label for="bedroom">No. of Bedroom:</label>
-                    <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" min=1>
+                    <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" min=1 required>
                   </div>
                   <div class="form-group">
                     <label for="living_room">No. of Living Room:</label>
-                    <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room" min=0>
+                    <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room" min=0 required>
                   </div>
                   <div class="form-group">
                     <label for="kitchen">No. of Kitchen:</label>
-                    <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen" min=0>
+                    <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen" min=0 required>
                   </div>
 
                   <div class="form-group">
                     <label for="description">Full Description:</label>
-                    <textarea type="comment" class="form-control" id="description" placeholder="Enter Property Description" name="description"></textarea>
+                    <textarea type="comment" class="form-control" id="description" placeholder="Enter Property Description" name="description" required></textarea>
                   </div>
                   <table class="table table-bordered" border="0">  
                   <tr> 
@@ -339,6 +361,15 @@ include("engine.php");
 
     </div>
     </div>
+
+<?php 
+
+          }}
+          ?>
+
+
+
+
 
 
     <div id="menu2" class="tab-pane fade">
@@ -413,6 +444,14 @@ include("engine.php");
             </div>
     </div>
     </div>
+
+
+
+
+
+
+
+
 
     <div id="menu3" class="tab-pane fade">
       <center><h3>Update Property</h3></center>
@@ -490,29 +529,38 @@ include("engine.php");
 
 
 
+<?php
+
+
+    $sql="SELECT * from add_property where  property_id='$property_id'";
+        $result=mysqli_query($db,$sql);
+        if(mysqli_num_rows($result)>0)
+      {
+          while($rows=mysqli_fetch_assoc($result)){
+          $property_id=$rows['property_id'];
+       ?>
+
 
     <div id="menu5" class="tab-pane fade">
       <center><h3>Edit Property Details</h3></center>
       <div class="container">
 
-      
 <div id="map_canvas"></div>
+
 <form method="POST" enctype="multipart/form-data">
           <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
               <label for="city">City:</label>
-              <select class="form-control" name="city">
+              <select class="form-control" name="city" value= "<?php echo $rows['city'] ?>">
                       <option value="" >--Select city--</option>
                       <option value="Pokhara">Pokhara</option>
-                      <option value="Kathmandu">Kathmandu</option>
-                      <option value="Bhaktapur">Bhaktapur</option>
                 </select>
               <!-- <input type="text" class="form-control" id="city" placeholder="Enter City" name="city"> -->
             </div>
             <div class="form-group">
               <label for="ward_no">Ward No.:</label>
-              <select class="form-control" name="ward_no">
+              <select class="form-control" name="ward_no" value="<?php echo $rows['ward_no'] ?>"  >
                       <option value="" >--Select Ward No--</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -548,11 +596,10 @@ include("engine.php");
                       <option value="33">33</option>
 
                 </select>
-              <!-- <input type="text" class="form-control" id="ward_no" placeholder="Enter Ward No." name="ward_no"> -->
             </div>
             <div class="form-group">
               <label for="Area">Area:</label>
-              <select class="form-control" name="Area">
+              <select class="form-control" name="Area" value="<?php echo $rows['Area']?>">                                                >
                       <option value="" >--Select Area--</option>
                       <option value="Airport Area">Airport Area</option>
                       <option value="Archalbot Area">Archalbot Area</option>
@@ -583,15 +630,15 @@ include("engine.php");
             </div>
             <div class="form-group">
               <label for="Street No">Street No:</label>
-              <input type="number" class="form-control" id="Street" placeholder="Enter Street No" name="Street" min=1>
+              <input type="number" class="form-control" id="Street" placeholder="Enter Street No" name="Street" min=1 value="<?php echo $rows['Street_No'] ?>">
             </div>
             <div class="form-group">
               <label for="contact_no">Contact No.:</label>
-              <input type="text" class="form-control" id="contact_no" placeholder="Enter Contact No." name="contact_no">
+              <input type="text" class="form-control" id="contact_no" placeholder="Enter Contact No." name="contact_no" value="<?php echo $rows['contact_no']?>">
             </div>
             <div class="form-group">
                <label for="property_type">Property Type:</label>
-                <select class="form-control" name="property_type">
+                <select class="form-control" name="property_type" value="<?php echo $rows['property_type'] ?>">
                       <option value="">--Select Property Type--</option>
                       <option value="Full House Rent">Full House Rent</option>
                       <option value="Flat Rent">Flat Rent</option>
@@ -600,37 +647,37 @@ include("engine.php");
             </div>                      
             <div class="form-group">
                 <label for="estimated_price">Estimated Price:</label>
-                <input type="estimated_price" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="estimated_price" min=100>
+                <input type="text" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="estimated_price" min=1000 value="<?php echo $rows['estimated_price'] ?>">
             </div>
         </div>
 
         <div class="col-sm-6">
                   <div class="form-group">
                     <label for="total_rooms">Total No. of Rooms:</label>
-                    <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms" min=1>
+                    <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms" min=1 value="<?php echo $rows['total_rooms'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="bedroom">No. of Bedroom:</label>
-                    <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" min=1>
+                    <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" min=1 value="<?php echo $rows['bedroom'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="living_room">No. of Living Room:</label>
-                    <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room" min=0>
+                    <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room" min=0  value="<?php echo $rows['living_room'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="kitchen">No. of Kitchen:</label>
-                    <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen" min=0>
+                    <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen" min=0 value="<?php echo $rows['kitchen'] ?>">
                   </div>
 
                   <div class="form-group">
                     <label for="description">Full Description:</label>
-                    <textarea type="comment" class="form-control" id="description" placeholder="Enter Property Description" name="description"></textarea>
+                    <textarea type="comment" class="form-control" id="description" placeholder="Enter Property Description" name="description" value="<?php echo $rows['description'] ?>"></textarea>
                   </div>
                   <table class="table table-bordered" border="0">  
                   <tr> 
                     <div class="form-group"> 
                     <label><b>Latitude/Longitude:</b><span style="color:red; font-size: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Click on Button</span></label>                    
-                    <td><input type="text" name="latitude" placeholder="Latitude" id="latitude" class="form-control name_list"  required /></td>
+                    <td><input type="text" name="latitude" placeholder="Latitude" id="latitude" class="form-control name_list"  required  /></td>
                     <td><input type="text" name="longitude" placeholder="Longitude" id="longitude" class="form-control name_list"  required /></td> 
                     <td><input type="button" value="Get Latitude and Longitude" onclick="getLocation()" class="btn btn-success col-lg-12"></td>  
                   </div>
@@ -649,15 +696,34 @@ include("engine.php");
                 <input name="lng" type="text" id="lng" hidden>
                   <hr>
                   <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-lg col-lg-12" value="Update Property" name="add_property">
+                    <input type="submit" class="btn btn-primary btn-lg col-lg-12" value="Update Property" name="update_property">
                   </div>
                 </div>
               </div>
               </form>
+              <?php }} ?>
               <br><br>
 
     </div>
     </div>
+<?php 
+// delete vayeko  message dekhaune 
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+  echo "<div class='container'>
+    <div class='alert alert-success' id='successAlert' role='alert'>
+        <strong>Your Property has been deleted successfully.</strong>
+    </div>
+</div>
+
+<script>
+    // Wait for 1 second (1000 milliseconds) then hide the alert
+    setTimeout(function(){
+        document.getElementById('successAlert').style.display = 'none';
+    }, 1000);
+</script>";
+}
+
+?>
 
 <div id="menu6" class="tab-pane fade">
       <center><h3>Booked Property</h3></center>
@@ -696,8 +762,8 @@ include("engine.php");
           while($ro=mysqli_fetch_assoc($result2)){
             $property_id=$ro['property_id'];
 
-        $sql="SELECT * from booking where property_id='$property_id'";
-        $result=mysqli_query($db,$sql);
+     //   $sql="SELECT * from booking where property_id='$property_id'";
+     //   $result=mysqli_query($db,$sql);
 
         if(mysqli_num_rows($result)>0)
       {

@@ -132,6 +132,8 @@ button:hover {
       <section>
         <h2 style="color:dodgerblue">Our Location</h2>
         <p>You can find us at the following address:</p>
+        <p>LA Grandee international college</p>
+        <p>Simalchaur -08 Pokhara, Gandaki ,Nepal</p>
       </section>
     </main>
     <footer>

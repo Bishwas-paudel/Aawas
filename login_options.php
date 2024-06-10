@@ -26,7 +26,7 @@ include("navbar.php");
   href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-    <!-- Navbar -->
+ 
     
             <div class="row">
                 
@@ -40,8 +40,7 @@ include("navbar.php");
                 
             </div>
         
-    
-    <!-- Footer -->
+
     <section class="footer">
         <div class="footer-container container">
             <h2>Rent Room</h2>

@@ -345,3 +345,22 @@ header {
   border-radius: 0;
   text-align: center;
 }
+
+#btn-see{
+  margin-left:720px;
+
+justify-content: center;
+  padding: 8px 22px;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border-radius: 5rem;
+  border:none;
+  position: relative;
+}
+#btn-see a{
+  color: white;
+}
+
+#btn-see:hover{
+  background:  #3492fd;
+}

@@ -1,27 +1,24 @@
-<?php 
-
+<?php
 include("navbar.php");
 include("rental-operation.php");
 global $error_msg;
  ?>
-
 <div class="container">
   <h3 style="font-weight: bold; text-align: center;">Rental Register</h3><hr><br>
-  <form method="POST"  enctype="multipart/form-data">
+  <form method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label for="full_name">Full Name:</label>
       <input type="text" class="form-control" id="full_name" placeholder="Enter Full Name" name="full_name" required>
     </div>
     <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
-    <?php
-    if (isset($_SESSION['error_msg'])): ?>
-        <span style="color:red;"><?php echo $_SESSION['error_msg']; ?></span>
-        <?php unset($_SESSION['error_msg']); // Clear the error message after displaying ?>
-    <?php endif; ?>
-</div>
-
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
+      <?php
+      if (isset($_SESSION['error_msg'])): ?>
+          <span style="color:red;"><?php echo $_SESSION['error_msg']; ?></span>
+          <?php unset($_SESSION['error_msg']); // Clear the error message after displaying ?>
+      <?php endif; ?>
+    </div>
     <div class="form-group">
       <label for="password1">Password:</label>
       <input type="password" class="form-control" id="password1" placeholder="Enter Password" name="password" required>
@@ -51,7 +48,7 @@ global $error_msg;
     </div>
     <div class="form-group">
       <label>Your selected File:</label><br>
-      <img src="" id="output_image"/ height="200px" required>
+      <img src="" id="output_image" height="200px" required>
     </div>
     <hr>
     <center><button id="submit" name="rental_register" class="btn btn-primary btn-block" onclick="return Validate()">Register</button></center><br>
@@ -62,25 +59,23 @@ global $error_msg;
 </div>
 
 <script type='text/javascript'>
-        function preview_image(event)
-        {
-            var reader = new FileReader();
-            reader.onload = function()
-            {
-                var output = document.getElementById('output_image');
-                output.src = reader.result;
-            }
-            reader.readAsDataURL(event.target.files[0]);
-        }
-    </script>
-    <script type="text/javascript">
-    function Validate() {
-        var password = document.getElementById("password1").value;
-        var confirmPassword = document.getElementById("password2").value;
-        if (password != confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        }
-        return true;
+function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function() {
+        var output = document.getElementById('output_image');
+        output.src = reader.result;
     }
+    reader.readAsDataURL(event.target.files[0]);
+}
+</script>
+<script type="text/javascript">
+function Validate() {
+    var password = document.getElementById("password1").value;
+    var confirmPassword = document.getElementById("password2").value;
+    if (password != confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+    }
+    return true;
+}
 </script>

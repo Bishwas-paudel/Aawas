@@ -1,12 +1,11 @@
 <?php
-session_start(); // Ensure the session is started
+session_start();
 
 include("connection/connection.php");
 
 if (isset($_POST['owner_register'])) {
     owner_register();
 }
-
 if (isset($_POST['owner_login'])) {
     owner_login();
 }
@@ -15,7 +14,7 @@ function owner_register() {
     global $db;
     $owner_id = validate($_POST['owner_id']);
     $full_name = validate($_POST['full_name']);
-    $email = validate($_POST['email']);
+    $email= validate($_POST['email']);
     $password = validate($_POST['password']);
     $phone_no = validate($_POST['phone_no']);
     $address = validate($_POST['address']);

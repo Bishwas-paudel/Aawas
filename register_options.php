@@ -3,8 +3,6 @@ session_start();
 if(isset($_SESSION["email"])){
   header(".php");
 }
-include("navbar.php");
-
  ?>
 <html>
     <head>
@@ -81,7 +79,10 @@ a:hover {
         </style>
     </head>
 </html>
+<?php
+include("navbar.php");
 
+?>
     <section class="container-fluid sign-in-form-section">
         <div class="container">
             <div class="row">

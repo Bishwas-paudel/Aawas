@@ -68,8 +68,8 @@ if (isset($_SESSION["email"])) {
             </form>
             <a href="owner-register.php" class="btn">Register now</a>
         </div>
-        <div class="login-image">
-            <video loop height="500px" width="500px" autoplay>
+        <div class="login-image" style="margin-left: 200px;">
+            <video loop height="500px" width="500px" " autoplay>
                 <source src="video/Red and Blue Modern YouTube Intro Video .mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>

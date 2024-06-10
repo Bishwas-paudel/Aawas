@@ -1,7 +1,5 @@
 <?php 
-
 include("navbar.php");
-
  ?>
 
 <div class="container">
@@ -55,6 +53,7 @@ include("navbar.php");
   </form>
 </div>
 
+
 <script type='text/javascript'>
         function preview_image(event)
         {
@@ -70,11 +69,14 @@ include("navbar.php");
     <script type="text/javascript">
     function Validate() {
         var password = document.getElementById("password1").value;
+        if(document.getElementById("password1").value< 5 && document.getElementById("password2").value <5){
+          alert("Password must be greater then 5 charecters")
+          return false;
         var confirmPassword = document.getElementById("password2").value;
         if (password != confirmPassword) {
             alert("Passwords do not match.");
             return false;
         }
         return true;
-    }
+    }}
 </script>
