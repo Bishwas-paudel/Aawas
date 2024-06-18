@@ -199,6 +199,55 @@ include('review-operation.php');
 
 </div>
 <br>
+<div class="sidebar">
+  <h3>Rent Dates</h3>
+  
+    <label for="start-date">Start Date:</label>
+    <input type="date" id="start-date" name="start-date">
+    <label for="end-date">End Date:</label>
+    <input type="date" id="end-date" name="end-date">
+    <input type="submit" value="Submit">
+
+</div>
+
+
+<?php 
+      
+if(isset($_SESSION["email"]) && !empty($_SESSION['email'])){
+  
+?>
+
+<form method="POST" action="booking-engine.php?property_id=<?php echo $rows['property_id']; ?>">
+
+<div class="row">
+  <div class="col-sm-6">
+    <?php
+    $booked=$rows['booked'];
+
+    if ($booked=='No'){ ?>
+      <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
+    <input type="submit" class="btn btn-lg btn-primary" name="book_property" style="width: 100%" value="Book Property">
+  <?php } else { ?>
+    <input type="submit" class="btn btn-lg btn-primary" style="width: 100%" value="Property Booked" disabled>
+  <?php } ?>
+  </div>
+</form>
+<form method="POST" action="chatpage.php">
+  <div class="col-sm-6">
+    <input type="hidden" name="owner_id" value="<?php echo $rows['owner_id']; ?>">
+    <input type="submit" class="btn btn-lg btn-success" name="send_message" style="width: 100%" value="Send Message" >
+    
+  </div>
+  </form>
+</div>
+
+<?php }
+else{
+  echo "<center><h3>You should login to book property.</h3></center>";
+}
+
+
+ ?>
 
 <br>
 <div id="map" style="width: 100%; height: 300px;">
@@ -210,6 +259,7 @@ include('review-operation.php');
 
 <?php }} ?>
 </div>
+
 
 
 <div class="container-fluid">
