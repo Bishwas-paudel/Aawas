@@ -11,6 +11,20 @@ session_start();
     <!-- Box Icons -->
     <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+    
+    #myInput, #myInput2, #myInput3, #myInput4 {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+    
+    </style>
 </head>
 <div class="navv">
 <?php 
@@ -33,14 +47,16 @@ include("navbar.php");
         </div>
         <div class="about-text">
             <span>AD SECTION</span>
-            <h2>We Provide The Best <br>Property For You !</h2>
-            Welcome to our rent house project!
+            <h2>We Provide The Best <br>Web services to you!</h2>
+          
 
-<p>Our mission is to provide you with a comfortable and enjoyable living experience in a home that you can truly call your own. We understand the importance of finding the perfect place to live, and we are committed to helping you make the most of your time with us. </p>
+<p>Our mission is to provide you with a secure web paltform  </p>
             <a href="#" class="btn">Learn More</a>
         </div>
     </section>
     
+
+    <input type="text" id="myInput4" onkeyup="myFunction4()" placeholder="Search..." title="Type in a name">
 
 <?php 
 
@@ -92,3 +108,26 @@ include("property-list.php");
     </div>
   </div>
 </footer>
+<script>
+function myFunction4() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput4");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable4");
+  tr = table.getElementsByTagName("tr");
+  th = table.getElementsByTagName("th");
+  for (i = 1; i < tr.length; i++) {
+    tr[i].style.display = "none";
+      for(var j=0; j<th.length; j++){
+        td = tr[i].getElementsByTagName("td")[j];      
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter.toUpperCase()) > -1)
+          {
+            tr[i].style.display = "";
+            break;
+           }
+        }
+      }
+  }
+}
+</script>
