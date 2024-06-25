@@ -12,14 +12,13 @@ if (isset($_POST['owner_login'])) {
 
 function owner_register() {
     global $db;
-    $owner_id = validate($_POST['owner_id']);
     $full_name = validate($_POST['full_name']);
     $email= validate($_POST['email']);
     $password = validate($_POST['password']);
     $phone_no = validate($_POST['phone_no']);
     $address = validate($_POST['address']);
     $id_type = validate($_POST['id_type']);
-    
+    $password = md5($password);
     if (isset($_FILES['id_photo'])) {
         $id_photo = 'owner-photo/' . $_FILES['id_photo']['name'];
         $path = "owner-photo/" . basename($_FILES['id_photo']['name']);
@@ -29,10 +28,9 @@ function owner_register() {
             echo "There was an error uploading the file, please try again!";
         }
     }
-
-    $password = md5($password);
-    $sql = "INSERT INTO owner(owner_id, full_name, email, password, phone_no, address, id_type, id_photo) VALUES ('$owner_id', '$full_name', '$email', '$password', '$phone_no', '$address', '$id_type', '$path')";
+    $sql = "INSERT INTO owner(full_name, email, password, phone_no, address, id_type, id_photo) VALUES ( '$full_name', '$email', '$password', '$phone_no', '$address', '$id_type', '$path')";
     if ($db->query($sql) === TRUE) {
+ 
         header("Location: owner-login.php");
     }
 }

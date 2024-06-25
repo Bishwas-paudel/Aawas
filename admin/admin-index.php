@@ -225,7 +225,7 @@ include("navbar.php");
                   <td><?php echo $rows['booking_id'] ?></td>
                   
         <?php 
-        $rental_id=$rows['Rental_id'];
+        $rental_id=$rows['rental_id'];
         $property_id=$rows['property_id'];
         $sql1="SELECT * from rental where rental_id='$rental_id'";
         $result1=mysqli_query($db,$sql1);

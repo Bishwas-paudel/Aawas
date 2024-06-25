@@ -150,7 +150,7 @@ include('review-operation.php');
               <td><h4><?php echo $rows['Area']; ?></h4></td>
             </tr>
             <tr>
-              <td><h4>Street_NO:</h4></td>
+              <td><h4>Street No.:</h4></td>
               <td><h4><?php echo $rows['Street_No']; ?></h4></td>
             </tr>
             <tr>
@@ -158,8 +158,8 @@ include('review-operation.php');
               <td><h4><?php echo $rows['contact_no']; ?></h4></td>
             </tr>
             <tr>
-              <td><h4>Estimated Price:</h4></td>
-              <td><h4>Rs.<?php echo $rows['estimated_price']; ?></h4></td>
+              <td><h4>Estimated Price:.&nbsp;</h4></td>
+              <td><h4> Rs.<?php echo $rows['estimated_price']; ?></h4></td>
             </tr>
           </table>
         </div>

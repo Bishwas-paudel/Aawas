@@ -22,6 +22,7 @@ img {
 }
 body {
   color: var(--text-color);
+  padding-top: 70px;
 }
 section {
   padding: 4.5rem 0 3rem;
@@ -34,7 +35,6 @@ section {
 /* Home */
 .home {
   margin-top: 5rem;
-  background: url(images/carousel.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -252,24 +252,19 @@ section {
   color: var(--bg-color);
   background: var(--main-color);
 }
-
-
-
-#btn-see{
-  margin-left:720px;
-
-justify-content: center;
+#btn-see {
+  margin-left: 720px;
+  justify-content: center;
   padding: 8px 22px;
   background: var(--main-color);
   color: var(--bg-color);
   border-radius: 5rem;
-  border:none;
+  border: none;
   position: relative;
 }
-#btn-see a{
+#btn-see a {
   color: white;
 }
-
-#btn-see:hover{
-  background:  #3492fd;
+#btn-see:hover {
+  background: #3492fd;
 }
