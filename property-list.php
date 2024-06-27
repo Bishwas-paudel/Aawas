@@ -72,7 +72,7 @@ header {
             <label for="menu"><i class='bx bx-menu' id="menu-icon"></i></label>
             <ul class="navbar">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="aboutus.php">About Us</a></li>
+                <li><a href="aboutus .php">About Us</a></li>
                 <li><a href="contactus.php">Contact Us</a></li>
                 <li><a href="property-list.php">Properties</a></li>
             </ul>

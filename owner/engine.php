@@ -46,6 +46,11 @@ function add_property() {
         $bedroom = validate($_POST['bedroom']);
         $living_room = validate($_POST['living_room']);
         $kitchen = validate($_POST['kitchen']);
+
+        $bedroom = isset($_POST['bedroom']) ? validate($_POST['bedroom']) : 0;
+        $living_room = isset($_POST['living_room']) ? validate($_POST['living_room']) : 0;
+        $kitchen = isset($_POST['kitchen']) ? validate($_POST['kitchen']) : 0;
+        
         $description = validate($_POST['description']);
         $latitude = validate($_POST['latitude']);
         $longitude = validate($_POST['longitude']);

@@ -62,7 +62,8 @@ include('review-operation.php');
 <?php
 
 
-	$property_id=$_GET['property_id'];
+	$property_id;
+  $property_id =$_GET['property_id'];
     $sql="SELECT * from add_property where property_id='$property_id'";
 	$query=mysqli_query($db,$sql);
 

@@ -4,7 +4,6 @@ isset($_SESSION["email"]);
 include("navbar.php");
 include("connection/connection.php");
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,17 +37,36 @@ include("connection/connection.php");
 </style>
 </head>
 <body>
-<?php 
-$q_string = $_POST['search_property'];
-$q_string = mysqli_real_escape_string($db, $q_string);
+<?php
+$searchTitle = isset($_POST['search-title']) ? mysqli_real_escape_string($db, $_POST['search-title']) : '';
+$searchLocation = isset($_POST['search-location']) ? mysqli_real_escape_string($db, $_POST['search-location']) : '';
+$propertyType = isset($_POST['property-type']) ? mysqli_real_escape_string($db, $_POST['property-type']) : '';
+$priceRange = isset($_POST['price-range']) ? mysqli_real_escape_string($db, $_POST['price-range']) : '';
+$queryParts = [];
+if (!empty($searchTitle)) {
+    $queryParts[] = "city LIKE '%$searchTitle%'";
+}
+if (!empty($searchLocation)) {
+    $queryParts[] = "Area LIKE '%$searchLocation%'";
+}
+if (!empty($propertyType)) {
+    $queryParts[] = "property_type = '$propertyType'";
+}
+if (!empty($priceRange)) {
+    list($minPrice, $maxPrice) = explode('-', $priceRange);
+    $queryParts[] = "estimated_price BETWEEN $minPrice AND $maxPrice";
+}
+$queryString = implode(' AND ', $queryParts);
+$sql = "SELECT * FROM add_property";
+if (!empty($queryString)) {
+    $sql .= " WHERE $queryString";
+}
 
-$sql="SELECT * FROM add_property WHERE CONCAT(city, area, property_type,Area) LIKE '%$q_string%'";
 $query = mysqli_query($db, $sql);
 
 if (!$query) {
     die('SQL Error: ' . mysqli_error($db));
 }
-
 echo '<center><h1>Searched Properties</h1></center>';
 if (mysqli_num_rows($query) > 0) {
     while ($rows = mysqli_fetch_assoc($query)) {
@@ -73,11 +91,9 @@ if (mysqli_num_rows($query) > 0) {
 ?>
 
   <h4><b><?php echo $rows['property_type']; ?></b></h4> 
-  <p><?php echo $rows['city'].', '.$rows['Area']; ?></p> 
   <p><?php echo '<a href="view-property.php?property_id='.$rows['property_id'].'" class="btn btn-lg btn-primary btn-block">View Property</a><br>'; ?></p><br>
 </div>
 </div>
-
 <?php 
     }
 } else {

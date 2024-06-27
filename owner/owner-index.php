@@ -26,6 +26,8 @@ include("engine.php");
     <li style="background-color: #FAFAF0"><a data-toggle="pill" href="#menu6">Booked Property</a></li>
   </ul>
 
+
+<!-- ---______________________________________________________________________oWNER PROFILE_________________________________________________________ -->
   <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
       <center><h3>Owner Profile</h3></center>
@@ -116,6 +118,7 @@ include("engine.php");
 
 
 
+<!-- _____________________________________________________________________MESSAGE SECTION_________________________________________________________ -->
 
 
 
@@ -190,26 +193,27 @@ include("engine.php");
           
        ?>
 
-    <div id="menu1" class="tab-pane fade">
-      <center><h3>Add Property</h3></center>
-      <div class="container">
 
-      
-<div id="map_canvas"></div>
+
+<!-- ______________________________________________________________________ADD PROPERTY_________________________________________________________ -->
+<div id="menu1" class="tab-pane fade">
+    <center><h3>Add Property</h3></center>
+    <div class="container">
+        <div id="map_canvas"></div>
         <form method="POST" enctype="multipart/form-data">
-          <div class="row">
-        <div class="col-sm-6">
-            <div class="form-group">
-              <label for="city">City:</label>
-              <select class="form-control" name="city" required>
-                      <option value=""  >--Select city--</option>
-                      <option value="Pokhara">Pokhara </option>
-                </select>
-            </div>
-            <div class="form-group">
-              <label for="ward_no">Ward No.:</label>
-              <select class="form-control" name="ward_no" required>
-                      <option value="" >--Select Ward No--</option>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <select class="form-control" id="city" name="city" required>
+                            <option value="">--Select city--</option>
+                            <option value="Pokhara">Pokhara</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ward_no">Ward No.:</label>
+                      <select class="form-control" id="ward_no" name="ward_no" required>
+                      <option value="">--Select Ward No--</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">4</option>
@@ -242,134 +246,151 @@ include("engine.php");
                       <option value="31">31</option>
                       <option value="32">32</option>
                       <option value="33">33</option>
-
-                </select>
-              <!-- <input type="text" class="form-control" id="ward_no" placeholder="Enter Ward No." name="ward_no"> -->
-            </div>
-
-
-
-
-
-
-
-            <div class="form-group">
-              <label for="Area">Area:</label>
-              <select class="form-control" name="Area" required>
-                      <option value="" >--Select Area--</option>
-                      <option value="Airport Area">Airport Area</option>
-                      <option value="Archalbot Area">Archalbot Area</option>
-                      <option value="Bagar Area">Bagar Area</option>
-                      <option value="Birauta Area">Biruta Area</option>
-                      <option value="Bhalam Area">Bhalam Area</option>
-                      <option value="Bijayapur Area">Bijayapur Area</option>
-                      <option value="Buddha Chok Area">Buddha Chok Area</option>
-                      <option value="Baglung Buspark Area">Baglung Buspark Area</option>
-                      <option value="Chipledhuga Area">Chipledhuga Area</option>
-                      <option value="Chorepatan Area">Chorepatan Area</option>
-                      <option value="Deep Area">Deep Area</option>
-                      <option value="Damside Area">Damside Area</option>
-                      <option value="Gairapatan Area"> Gairapatan Area</option>
-                      <option value="Gharipatan Area">Gharipatan Area</option>
-                      <option value="Lakeside Area">Lakeside Area</option>
-                      <option value="Hallanchok Area">Hallanchok Area</option>
-                      <option value="Malepatan Area">Malepatan Area</option>
-                      <option value="Nayabajar Area">Nayabajar Area</option>
-                      <option value="Newroad Area">Newroad Area</option>
-                      <option value="Nayagau Area"> Nayagau Area</option>
-                      <option value="Pritivichok Area">Pritivichok Area</option>
-                      <option value="Parsyang Area">Parsyang Area</option>
-                      <option value="Simalchaur Area">Simalchaur Area</option>
-                      <option value="Shrijanachok Area">Shrijanacchok Area</option>
-                      <option value="Zerokm Area">ZeroKm Area</option>
-                </select>
-            </div>
-            <div class="form-group">
-              <label for="Street No">Street No:</label>
-              <input type="number" class="form-control" id="Street" placeholder="Enter Street No" name="Street" min=1 required>
-            </div>
-            <div class="form-group">
-              <label for="contact_no">Contact No.:</label>
-              <input type="text" class="form-control" id="contact_no" placeholder="Enter Contact No." name="contact_no" value="<?php echo $rows['phone_no']; ?>" required>
-            </div>
-            <div class="form-group">
-               <label for="property_type">Property Type:</label>
-                <select class="form-control" name="property_type" required>
-                      <option value="">--Select Property Type--</option>
-                      <option value="Full House Rent">Full House Rent</option>
-                      <option value="Flat Rent">Flat Rent</option>
-                      <option value="Room Rent">Room Rent</option>
-                </select>
-            </div>                      
-            <div class="form-group">
-                <label for="estimated_price">Estimated Price:</label>
-                <input type="estimated_price" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="estimated_price" min=100 required>
-            </div>
-        </div>
-
-        <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="total_rooms">Total No. of Rooms:</label>
-                    <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms" min=1 required>
-                  </div>
-                  <div class="form-group">
-                    <label for="bedroom">No. of Bedroom:</label>
-                    <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" min=1 required>
-                  </div>
-                  <div class="form-group">
-                    <label for="living_room">No. of Living Room:</label>
-                    <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room" min=0 required>
-                  </div>
-                  <div class="form-group">
-                    <label for="kitchen">No. of Kitchen:</label>
-                    <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen" min=0 required>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="description">Full Description:</label>
-                    <textarea type="comment" class="form-control" id="description" placeholder="Enter Property Description" name="description" required></textarea>
-                  </div>
-                  <table class="table table-bordered" border="0">  
-                  <tr> 
-                    <div class="form-group"> 
-                    <label><b>Latitude/Longitude:</b><span style="color:red; font-size: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Click on Button</span></label>                    
-                    <td><input type="text" name="latitude" placeholder="Latitude" id="latitude" class="form-control name_list"  required /></td>
-                    <td><input type="text" name="longitude" placeholder="Longitude" id="longitude" class="form-control name_list"  required /></td> 
-                    <td><input type="button" value="Get Latitude and Longitude" onclick="getLocation()" class="btn btn-success col-lg-12"></td>  
-                  </div>
-                  </tr>  
-                </table>
-                  <table class="table" id="dynamic_field">  
-                  <tr> 
-                    <div class="form-group"> 
-                    <label><b>Photos:</b></label>                    
-                    <td><input type="file" name="p_photo[]" placeholder="Photos" class="form-control name_list" required accept="image/*" /></td> 
-                    <td><button type="button" id="add" name="add" class="btn btn-success col-lg-12">Add More</button></td>  
-                  </div>
-                  </tr>  
-                </table>
-                <input name="lat" type="text" id="lat" hidden>
-                <input name="lng" type="text" id="lng" hidden>
-                  <hr>
-                  <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-lg col-lg-12" value="Add Property" name="add_property">
-                  </div>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Area">Area:</label>
+                        <select class="form-control" id="Area" name="Area" required>
+                            <option value="">--Select Area--</option>
+                            <!-- Area options will be dynamically populated -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Street No">Street No:</label>
+                        <input type="number" class="form-control" id="Street" placeholder="Enter Street No" name="Street" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact_no">Contact No.:</label>
+                        <input type="text" class="form-control" id="contact_no" placeholder="Enter Contact No." name="contact_no" value="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="property_type">Property Type:</label>
+                        <select class="form-control" name="property_type" required>
+                            <option value="">--Select Property Type--</option>
+                            <option value="Full House Rent">Full House Rent</option>
+                            <option value="Flat Rent">Flat Rent</option>
+                            <option value="Room Rent">Room Rent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="estimated_price">Estimated Price:</label>
+                        <input type="number" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="estimated_price" min="100" required>
+                    </div>
                 </div>
-              </div>
-              </form>
-              <br><br>
 
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="total_rooms">Total No. of Rooms:</label>
+                        <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bedroom">No. of Bedroom:</label>
+                        <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="living_room">No. of Living Room:</label>
+                        <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kitchen">No. of Kitchen:</label>
+                        <input type="number" class="form-control" id="kitchen" placeholder="Enter No. of Kitchen" name="kitchen" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Full Description:</label>
+                        <textarea class="form-control" id="description" placeholder="Enter Property Description" name="description" required></textarea>
+                    </div>
+                    <table class="table table-bordered" border="0">
+                        <tr>
+                            <div class="form-group">
+                                <label><b>Latitude/Longitude:</b><span style="color:red; font-size: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Click on Button</span></label>
+                                <td><input type="text" name="latitude" placeholder="Latitude" id="latitude" class="form-control name_list" required /></td>
+                                <td><input type="text" name="longitude" placeholder="Longitude" id="longitude" class="form-control name_list" required /></td>
+                                <td><input type="button" value="Get Latitude and Longitude" onclick="getLocation()" class="btn btn-success col-lg-12"></td>
+                            </div>
+                        </tr>
+                    </table>
+                    <table class="table" id="dynamic_field">
+                        <tr>
+                            <div class="form-group">
+                                <label><b>Photos:</b></label>
+                                <td><input type="file" name="p_photo[]" placeholder="Photos" class="form-control name_list" required accept="image/*" /></td>
+                                <td><button type="button" id="add" name="add" class="btn btn-success col-lg-12">Add More</button></td>
+                            </div>
+                        </tr>
+                    </table>
+                    <input name="lat" type="text" id="lat" hidden>
+                    <input name="lng" type="text" id="lng" hidden>
+                    <hr>
+                    <div class="form-group">
+                        <input type="submit" id="submit" class="btn btn-primary btn-lg col-lg-12" value="Add Property" name="add_property">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br><br>
     </div>
-    </div>
-
+</div>
 <?php 
 
           }}
-          ?>
+
+?>
+
+<script>
+
+ document.getElementById('total_rooms').addEventListener('input', function() {
+    var totalRooms = parseInt(this.value);
+    var bedroom = document.getElementById('bedroom');
+    var livingRoom = document.getElementById('living_room');
+    var kitchen = document.getElementById('kitchen');
+    
+    if (totalRooms === 1) {
+        bedroom.value = 0;
+        bedroom.disabled = true;
+        livingRoom.value = 0;
+        livingRoom.disabled = true;
+        kitchen.value = 0;
+        kitchen.disabled = true;
+    } else {
+        bedroom.disabled = false;
+        livingRoom.disabled = false;
+        kitchen.disabled = false;
+    }
+});
 
 
 
 
+    const areaOptions = {
+        "1": ["Archalbot Area", "Bagar Area","Pn campus area"],
+        "17": ["Birauta chok Area", "Ram mandir Area", "Gharipatan area", "Dampside area", "Chorepatan area", "Sangrila area", "Hotel Grandee area", " Balodaya area"],
+        "3": ["Nadipur area", "Kanya campus area", "Palikechok"],
+        "7": ["Janapriya area", "La grandee Area", "Rantnachok Area" ,"Masbar Area"],
+        "15": ["HariyaKharka area", "Sos Area", "Nayagau Area", "Nayagau Church Area","Kolpatan","Tutunga Area","Ban campus area"],
+        "16": ["WRC area", "GCES Area", "Batulechau Area"]
+    };
+
+    document.getElementById('ward_no').addEventListener('change', function() {
+        var wardNo = this.value;
+        var areaSelect = document.getElementById('Area');
+
+        areaSelect.innerHTML = '<option value="">--Select Area--</option>';
+
+        if (areaOptions[wardNo]) {
+            areaOptions[wardNo].forEach(function(area) {
+                var option = document.createElement('option');
+                option.value = area;
+                option.text = area;
+                areaSelect.appendChild(option);
+            });
+        }
+    });
+</script>
+
+
+
+
+<!-- ______________________________________________________________________VIEW PROPERTY_________________________________________________________ -->
 
 
     <div id="menu2" class="tab-pane fade">
@@ -541,6 +562,11 @@ include("engine.php");
        ?>
 
 
+
+
+<!-- _____________________________________________________________________UPDATE PROPERTY_________________________________________________________ -->
+
+
     <div id="menu5" class="tab-pane fade">
       <center><h3>Edit Property Details</h3></center>
       <div class="container">
@@ -552,7 +578,7 @@ include("engine.php");
         <div class="col-sm-6">
             <div class="form-group">
               <label for="city">City:</label>
-              <select class="form-control" name="city" value= "<?php echo $rows['city'] ?>">
+              <select class="form-control" name="city" value="<?php echo $rows['city'] ?>">
                       <option value="" >--Select city--</option>
                       <option value="Pokhara">Pokhara</option>
                 </select>

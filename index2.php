@@ -1,10 +1,12 @@
+<div style="position:sticky;  ">
 <?php 
 session_start();
 include("navbar.php");
- ?>
+ ?></div>
  <head>
  <style>
 body, html {
+  top:20px;
   height: 100%;
   margin: 0;
 }
@@ -102,6 +104,44 @@ a:hover {
   margin: 0;
   text-align: center;
 }
+.filter-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color:#e4f2fd;
+}
+
+input, select,option{
+  justify-content: center;
+
+  font-size: larger;
+    background-color:#b3e5fc;
+    border: none;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 15px;
+    color:black;
+    
+}
+
+button {
+  font-size: larger;
+    background-color:chocolate;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 125px;
+    border-radius: 25px;
+    color:white;
+    cursor: pointer;
+}
+
 </style>
 
     <meta charset="UTF-8">
@@ -115,20 +155,32 @@ a:hover {
   href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<div class="bg"></div><br>
-<div class="container active-cyan-4 mb-4 inline">
-	<form method="POST" action="search-property.php">
-  <input class="form-control" type="text" placeholder="Enter location to search house." name="search_property" aria-label="Search">
-  </form>
-</div>
+<div class="bg"></div><br><br><br>
+
+
+<div class="filter-section">
+        <form action="search-property.php" method="POST">
+            <input type="text" name="search-title" id="search-title" placeholder="Search By City">
+            <input type="text" name="search-location" id="search-location" placeholder="Search For Specific Area">
+            <select name="property-type" id="property-type">
+                <option value="">Property type</option>
+                <option value="Full House Rent">Full House rent</option>
+                <option value="Flat rent">Flat Rent</option>
+                <option value="Room Rent">Room Rent</option>
+            </select>
+            <select name="price-range" id="price-range">
+                <option value="">Price Ranges</option>
+                <option value="1000-5000">1000-5000</option>
+                <option value="5000-10000">5000-10000</option>
+                <option value="10000-20000">10000-20000</option>
+                <option value="10000-20000">10000-30000</option>
+
+            </select>
+            <button id="search-button" type="submit">Search</button>
+        </form>
+    </div>
 <br><br>
-    <!-- Home -->
-    <section class="home container" id="home">
-        <div class="home-text">
-            <h1>Find Your Next <br>Perfect Place To <br>Live.</h1>
-            
-        </div>
-    </section>
+  
     <div class="blank-div"></div>
     
 

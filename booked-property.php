@@ -48,7 +48,7 @@ include("connection/connection.php");
 <body>
 <?php 
 $u_email=$_SESSION['email'];
-        $sql3="SELECT * from rental where email='$u_email'";
+        $sql3="SELECT * from Rental where email='$u_email'";
         $result3=mysqli_query($db,$sql3);
 
     echo '<center><h1>Booked Properties</h1></center>';
@@ -56,9 +56,9 @@ $u_email=$_SESSION['email'];
         if(mysqli_num_rows($result3)>0)
       {
           while($rowss=mysqli_fetch_assoc($result3)){
-            $rental_id=$rowss['rental_id'];
+            $Rental_id=$rowss['Rental_id'];
 
-$sql1="SELECT * FROM booking where rental_id='$rental_id'";
+$sql1="SELECT * FROM booking where Rental_id='$Rental_id'";
     $query1=mysqli_query($db,$sql1);
     if(mysqli_num_rows($query1)>0)
     {
@@ -89,7 +89,6 @@ $sql="SELECT * FROM add_property where property_id='$prop_id'";
         echo  '<img class="image" src="owner/'.$photo.'">'; }?>
 
   <h4><b><?php echo $rows['property_type']; ?></b></h4> 
-  <p><?php echo $rows['city'].', '.$rows['district'] ?></p> 
   <p><?php echo '<a href="view-property.php?property_id='.$rows['property_id'].'"  class="btn btn-lg btn-primary btn-block" >View Property </a><br>'; ?></p><br>
 </div>
 </div>
@@ -104,7 +103,7 @@ $sql="SELECT * FROM add_property where property_id='$prop_id'";
     }
 
     else{
-    	echo "<center><h3>Searched Property not found...</h3></center>";
+    //	echo "<center><h3>Searched Property not found...</h3></center>";
     }
   }}}}
     ?>
