@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2024 at 06:42 AM
+-- Generation Time: Jun 25, 2024 at 06:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -52,11 +52,15 @@ CREATE TABLE `add_property` (
 --
 
 INSERT INTO `add_property` (`property_id`, `city`, `ward_no`, `Area`, `contact_no`, `property_type`, `estimated_price`, `total_rooms`, `bedroom`, `living_room`, `kitchen`, `description`, `latitude`, `longitude`, `owner_id`, `booked`, `Street_No`) VALUES
-(188, 'Pokhara', 15, 'Nayagau Church Area', 9806632652, 'Flat Rent', 12000, 4, 2, 1, 1, 'Free wifi', 28.068900, 82.783200, 19, 'No', 1),
-(189, 'Pokhara', 7, 'La grandee Area', 9866317885, 'Full House Rent', 12000, 1, 0, 0, 0, 'Nice room  in this area', 28.167373, 84.063027, 19, 'No', 20),
-(192, 'Pokhara', 3, 'Kanya campus area', 9866317885, 'Room Rent', 5000, 1, 0, 0, 0, 'Good room at affordable price (Good for student)', 28.233000, 83.990600, 21, 'No', 6),
-(194, 'Pokhara', 5, 'Malepatan', 9866317885, 'Room Rent', 6000, 1, 0, 0, 0, 'Good Room for single person', 28.216525, 83.994214, 23, 'No', 12),
-(195, 'Pokhara', 7, 'Pokhari Patan Tol', 9806681124, 'Flat Rent', 12000, 4, 2, 1, 1, '-parking Available\r\n-Wifi(included)', 28.207846, 83.974657, 23, 'No', 15);
+(174, 'Pokhara', 17, 'Chorepatan Area', 982222222, 'Full House Rent', 10000, 3, 1, 1, 1, 'WATER AND ELECTRICITY  24 HOUR', 28.206802, 83.976199, 16, 'No', 12),
+(175, 'Pokhara', 17, 'Chorepatan Area', 420, 'Full House Rent', 10000, 6, 3, 1, 1, 'WATER AND ELECTRICITY  24 HOUR', 28.206802, 83.976199, 16, 'No', 12),
+(177, 'Pokhara', 1, 'Bagar Area', 9866317885, 'Flat Rent', 10000, 1, 1, 1, 1, 'hello', 28.206880, 83.976129, 12, 'No', 3),
+(178, 'Pokhara', 8, 'Airport Area', 9866317885, 'Full House Rent', 50000, 6, 3, 2, 1, 'Best room for the family', 28.207900, 83.974659, 9, 'No', 20),
+(179, 'Pokhara', 1, 'Bagar Area', 9866317885, 'Room Rent', 4500, 1, 1, 0, 0, 'Best room for student', 28.207876, 83.974654, 9, 'No', 12),
+(180, 'Pokhara', 1, 'Archalbot Area', 9866317885, 'Flat Rent', 12000, 4, 2, 1, 1, 'Best Environment', 28.207855, 83.974633, 9, 'No', 12),
+(181, 'Pokhara', 7, 'Newroad Area', 9866317885, 'Room Rent', 5000, 1, 1, 0, 0, 'can cook', 27.700769, 85.300140, 9, 'No', 12),
+(182, 'Pokhara', 1, 'Bhalam Area', 9866317885, 'Flat Rent', 12000, 4, 2, 1, 1, 'Call for more detail', 28.206824, 83.976084, 9, 'No', 2),
+(183, 'Pokhara', 5, 'Airport Area', 9866317885, 'Room Rent', 5000, 1, 1, 0, 0, 'best room', 28.206813, 83.976103, 9, 'No', 2);
 
 -- --------------------------------------------------------
 
@@ -75,7 +79,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `email`, `password`) VALUES
-(1, 'bishwas@aaawas.com', 'admin');
+(1, 'bishwas@la.com', 'bishwas');
 
 -- --------------------------------------------------------
 
@@ -84,12 +88,22 @@ INSERT INTO `admin` (`admin_id`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `booking` (
-  `booking_id` int(11) NOT NULL,
+  `booking_id` int(11) DEFAULT NULL,
   `rental_id` int(11) DEFAULT NULL,
-  `property_id` int(11) DEFAULT NULL,
-  `Deposit_Amount` double NOT NULL,
-  `Booked_date` varchar(100) NOT NULL
+  `property_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `rental_id`, `property_id`) VALUES
+(0, 18, 0),
+(NULL, 18, 134),
+(NULL, 18, 134),
+(NULL, 18, 133),
+(NULL, 0, 135),
+(NULL, 0, 137);
 
 -- --------------------------------------------------------
 
@@ -102,18 +116,6 @@ CREATE TABLE `chat` (
   `owner_id` int(11) NOT NULL,
   `rental_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `chat`
---
-
-INSERT INTO `chat` (`message`, `owner_id`, `rental_id`) VALUES
-('', 18, 16),
-('hello sir ', 18, 16),
-('hello sir ', 18, 17),
-('hello sir i can payment\r\n', 19, 17),
-('hello', 19, 17),
-('heeloo', 19, 17);
 
 -- --------------------------------------------------------
 
@@ -137,8 +139,7 @@ CREATE TABLE `owner` (
 --
 
 INSERT INTO `owner` (`owner_id`, `full_name`, `email`, `password`, `phone_no`, `address`, `id_type`, `id_photo`) VALUES
-(21, 'Mausam Pariyar', 'weatherofficial100@gmail.com', '167ffeeb02ff15a76a2ef080b7225429', 9802235652, 'Lekhnath ,Pokhara', 'Citizenship', 'owner-photo/id (2).png'),
-(23, 'Bishwas Paudel', 'bishwas@lagrandee.com', '127c9f6a69051fd51e79bed4f826d7d1', 9866317885, 'Simalchaur', 'Citizenship', 'owner-photo/id (2).png');
+(13, 'prajwal bastola', 'prajwal@gmail.com', '123', 9806622211, 'pokhara nepal', 'Voter Card', 'owner-photo/logo.png');
 
 -- --------------------------------------------------------
 
@@ -157,17 +158,23 @@ CREATE TABLE `property_photo` (
 --
 
 INSERT INTO `property_photo` (`property_photo_id`, `p_photo`, `property_id`) VALUES
-(69, 'product-photo/download (11).jpeg', 188),
-(70, 'product-photo/images (19).jpeg', 188),
-(71, 'product-photo/kitchen-shutterstock-c.jpg', 188),
-(72, 'product-photo/images (11).jpeg', 189),
-(73, 'product-photo/images (12).jpeg', 189),
-(81, 'product-photo/images (15).jpeg', 192),
-(82, 'product-photo/images (16).jpeg', 192),
-(84, 'product-photo/images (16).jpeg', 194),
-(85, 'product-photo/download (3).jpeg', 195),
-(86, 'product-photo/download (4).jpeg', 195),
-(87, 'product-photo/download (5).jpeg', 195);
+(37, 'product-photo/placeholder - Copy.png', 174),
+(38, 'product-photo/gmail (1).png', 174),
+(39, 'product-photo/placeholder - Copy.png', 175),
+(40, 'product-photo/gmail (1).png', 175),
+(46, 'product-photo/facebook (1).png', 177),
+(47, 'product-photo/gmail (1).png', 177),
+(48, 'product-photo/night.jpg', 178),
+(49, 'product-photo/building-concept-illustration_114360-4469.webp', 178),
+(50, 'product-photo/1_rk_apartment-for-rent-vijay_nagar_4-Indore-bedroom.webp', 179),
+(51, 'product-photo/download.jpg', 179),
+(52, 'product-photo/download (4).jpg', 180),
+(53, 'product-photo/luxury-bedroom-suite-resort-high-rise-hotel-with-working-table_105762-1783.webp', 180),
+(54, 'product-photo/hvjhvjhbk.jpg', 181),
+(55, 'product-photo/home1.jpg', 182),
+(56, 'product-photo/home2.jpg', 182),
+(57, 'product-photo/home1.jpg', 183),
+(58, 'product-photo/home1.jpg', 183);
 
 -- --------------------------------------------------------
 
@@ -191,8 +198,7 @@ CREATE TABLE `rental` (
 --
 
 INSERT INTO `rental` (`Rental_id`, `full_name`, `email`, `password`, `phone_no`, `address`, `id_type`, `id_photo`) VALUES
-(17, 'Mausam pariyar', 'weatherofficial100@gmail.com', '167ffeeb02ff15a76a2ef080b7225429', 9817160949, 'Syangja', 'Citizenship', 'rental_photo/id (2).png'),
-(18, 'Sital Wagle', 'sital@aawas.com', '511d25be86c42a9bc8de198d72de096f', 9846092408, 'Birauta Pokhara', 'Citizenship', 'rental_photo/images.png');
+(15, 'Bishwas Paudel', 'one@la.com', '5e797707b8d40f3bb23cdca720fd3818', 9866317885, 'gandaki pokhara nepal', 'Citizenship', 'rental_photo/driver-license (1).png');
 
 -- --------------------------------------------------------
 
@@ -230,13 +236,6 @@ CREATE TABLE `review` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`review_id`, `comment`, `rating`, `property_id`) VALUES
-(17, 'Good room', 2, 189);
-
---
 -- Indexes for dumped tables
 --
 
@@ -252,12 +251,6 @@ ALTER TABLE `add_property`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
-
---
--- Indexes for table `booking`
---
-ALTER TABLE `booking`
-  ADD PRIMARY KEY (`booking_id`);
 
 --
 -- Indexes for table `owner`
@@ -293,7 +286,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `add_property`
 --
 ALTER TABLE `add_property`
-  MODIFY `property_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+  MODIFY `property_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -302,34 +295,28 @@ ALTER TABLE `admin`
   MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `booking`
---
-ALTER TABLE `booking`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
-  MODIFY `owner_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `owner_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `property_photo`
 --
 ALTER TABLE `property_photo`
-  MODIFY `property_photo_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `property_photo_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `rental`
 --
 ALTER TABLE `rental`
-  MODIFY `Rental_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Rental_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `review_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
