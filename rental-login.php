@@ -5,6 +5,21 @@ include("navbar.php")  ?>
 <head>
 <link rel="stylesheet" href="style2.css">
 <style>
+  body {
+margin-top: 2px;
+ font-family: 'Arial', sans-serif;
+ background-color: var(--bg-color);
+ color: var(--text-color);
+ padding: 0;
+ margin: 0;
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+}
+.container-fluid {
+ padding: 0.000001px;
+}
+
 footer {
   background-color: #e3f2fd;
   color: #292929;

@@ -124,7 +124,8 @@ if(isset($_POST['send_message1'])){
   $query = mysqli_query($db,$sql);
   if($query)
   {
-    header("Refresh:0");
+    echo"<script> alert(message sent sucessfully)</script>";
+    header("location:view-property.php");
   }
 }
 ?>

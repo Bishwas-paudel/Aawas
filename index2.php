@@ -112,23 +112,21 @@ a:hover {
     padding: 10px;
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    color:#e4f2fd;
 }
 
 input, select,option{
   justify-content: center;
 
   font-size: larger;
-    background-color:#b3e5fc;
-    border: none;
+    background-color:aliceblue;
     padding: 10px;
     margin: 15px;
     border-radius: 15px;
-    color:black;
+    border-color:blue;
     
 }
 
-button {
+#search-button {
   font-size: larger;
     background-color:chocolate;
     border: none;
@@ -248,11 +246,33 @@ header {
   width: 250px;
   height: 250px;
 }
+.loadmore{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin-left: 600px;
+  margin-right: 600px;
+
+}
+#load{
+  font-size: larger;
+    background-color:#4dd0e1;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 125px;
+    border-radius: 25px;
+    color:white;
+    cursor: pointer;
+}
 </style>
 </head>
 <body>
 <?php 
-$sql="SELECT * FROM add_property";
+$sql = "SELECT * FROM add_property where booked='No' ORDER BY property_id ASC limit 20";
+
 $query=mysqli_query($db,$sql);
 
 if(mysqli_num_rows($query)>0) {
@@ -273,7 +293,7 @@ if(mysqli_num_rows($query2)>0) {
 }
 ?>
   <h4><b><?php echo $rows['property_type']; ?></b></h4> 
-  <p><?php echo $rows['city'] ?></p> 
+  <p><?php echo $rows['Area'] ?>  | <?php echo $rows['city'] ?>  </p> <p> Rs .<?php echo $rows['estimated_price'] ?>/Month</p>  
   <p><?php echo '<a href="view-property.php?property_id='.$rows['property_id'].'"  class="btn-lg btn-primary btn-block" >View Property </a><br>'; ?></p><br>
 </div>
 <?php 
@@ -281,12 +301,12 @@ if(mysqli_num_rows($query2)>0) {
     echo '</div>';
 }
 ?>
-
+      <br><br>    <div class="loadmore">
+            <button id="load">LOAD MORE</button>
+           </div>
 </body>
 </html>
 
-
- ?>
  <br><br>
 
 <p></p>

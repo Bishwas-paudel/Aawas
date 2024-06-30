@@ -88,8 +88,13 @@ include("engine.php");
                   <input type="text" class="form-control" id="address" value="<?php echo $rows['address']; ?>" name="address" required>
                 </div>
                 <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" required>
+                <small id="passwordError" class="form-text text-danger"></small>
+               </div>
+                <div class="form-group">
       <label for="id_type">Type of ID:</label>
-      <input type="text" class="form-control" value="<?php echo $rows['id_type']; ?>" name="id_type" readonly required>
+      <input type="text" class="form-control" value="<?php echo $rows['id_type']; ?>" name="id_type"  required>
     </div>
     <div class="form-group">
       <label>Your Id:</label><br>
@@ -171,7 +176,7 @@ include("engine.php");
 
 
 <?php
-        //echo '<a href="send-message.php?owner_id='.$owner_id.'&rental_id='.$rental_id.'">'.$rows["full_name"].'</a>';
+        echo '<a href="send-message.php?owner_id='.$owner_id.'&rental_id='.$rental_id.'&email='.$u_email.'">'.$rows["full_name"].'</a>';
     }
   }}}}}?>
     </div>
@@ -361,14 +366,41 @@ include("engine.php");
 
 
 
-    const areaOptions = {
-        "1": ["Archalbot Area", "Bagar Area","Pn campus area"],
-        "17": ["Birauta chok Area", "Ram mandir Area", "Gharipatan area", "Dampside area", "Chorepatan area", "Sangrila area", "Hotel Grandee area", " Balodaya area"],
-        "3": ["Nadipur area", "Kanya campus area", "Palikechok"],
-        "7": ["Janapriya area", "La grandee Area", "Rantnachok Area" ,"Masbar Area"],
-        "15": ["HariyaKharka area", "Sos Area", "Nayagau Area", "Nayagau Church Area","Kolpatan","Tutunga Area","Ban campus area"],
-        "16": ["WRC area", "GCES Area", "Batulechau Area"]
-    };
+const areaOptions = {
+    "1": ["Bagar", "Pn campus", "Ki Singpool", "Simpani", "taxichowk", "Tundikhel", "Bhimkali Patan", "Deep Housing"],
+    "2": ["Miruwa", "Bhairab Tol", "Guhaeshori Marg", "Mitra Marg", "Mohriya Tol"],
+    "3": ["Nadipur", "Kopildunga", "Mahendrapool"],
+    "4": ["Gairapatan", "Chipledunga", "Panti Galli", "Shiddhartha Chwok"],
+    "5": ["Malepatan", "Dhunge Khola", "Gadatantra Chok", "Shantinagar Chok", "Doke Chok", "Prasyang", "Zero Kilometer"],
+    "6": ["Baidam", "Santi Patan", "ShriKrishna Tole"],
+    "7": ["Masbar", "Baral chok", "Ghari khet", "Pokhari Patan Tol", "Pragati Tol", "Mulijuli tole", "Sivam Tol"],
+    "8": ["Shrijana Chowk", "Bhage Tol", "Indrapuri Tol", "Gyankunj Tol", "RatnaChowk"],
+    "9": ["Naya Bazar", "prithivichowk", "Santiban Batika"],
+    "10": ["Budha chowk", "Kalika Chowk", "Machhapuchhre tole", "Milan Tole", "Sambridhi Tole", "Indra Chowk", "Pipal Dali Chowk"],
+    "11": ["Ranipauwa", "RamGhat Area", "Bhanu chowk"],
+    "12": ["Sital Devi", "Bhrikuti Tole", "AmarsingChowk", "Hospital Line", "RaniPauwa"],
+    "13": ["Miya Patan", "Bhadarikali Tole", "Khaukhola", "Kasari", "Arba", "Kamlpokhari", "Bajapatan"],
+    "14": ["Majheripatan", "Kajipokhari", "Chinnedanda", "Sagarmatha Chowk", "Suryodaya", "Radhakrishna Tole", "Shivashakti Tole"],
+    "15": ["Rambazar", "ST.Mary Chowk", "Hariyo Kharkha", "Dunga Sau","church Area", "Belbot", "Kolpata"],
+    "16": ["Batulechaur", "Maidan", "Gharmi", "Amala Bisaune", "Armalkot", "Pashchimanchal Campus Area"],
+    "17": ["DamSide", "Birauta", "RatoPAiro", "Om Santi Chowk","Ram mandir","Power House","Devi's fall", "Tibetan Refugee Camp"],
+    "18": ["Sarangkot", "Chisakhola Basti", "Methlang", "Bhakunde", "Gyarjati", "Toripani"],
+    "19": ["Lamachaur", "Puranchaur", "Tallakot", "Chitapani", "Lampata", "Beshi Chwok", "Baura"],
+    "20": ["Bhalam", "Aatighar", "Bisauna"],
+    "21": ["Nirmal Pokhari", "Phoksing", "Bayeli", "Pokharelthok"],
+    "22": ["Pumdi Bhumdi", "KhadeKhola", "PumdiKot", "Dunge Pani", "Peace Pagoda"],
+    "23": ["Chapakot", "Bhadaure", "Thula Chaur", "Thulakhet", "Panchase Bhanjyang", "Harpankot", "Ghatichhina"],
+    "24": ["Kaskikot", "Kaski", "Ratamata Tole", "Pame"],
+    "25": ["Hemja", "Milan Chwok", "Buddha Chok Hemja"],
+    "26": ["Budhi Bazar", "kalika Chok", "Dhudhpokhari Tole"],
+    "27": ["Tal Chowk", "Lekhnath", "Pargati Tole", "Sundari Tole", "Ekata Tole"],
+    "28": ["Kalika", "Thulakot", "Kholabesi", "Kiwarigaun", "Modothan", "SaureBhanjyang"],
+    "29": ["Bhandardhik", "Patneri", "Siddhartha Budhha Tole", "Budhibazzar"],
+    "30": ["Khudi", "Sishuwa", "Power House", "Dahar Chok", "PU Chok"],
+    "31": ["Begnas", "Lakuri Tol", "Pachabhaiya", "Lapsidanda", "Unnati Tol"],
+    "32": ["Gagangauda", "Majuya", "Ghauri tol", "Rajako Chautara", "Satmuhane", "Deurali Phedi"],
+    "33": ["Bharat Pokhari", "Chisapani", "Upllopudi", "Chauhadi", "Lamgadi", "Apukaseri"]
+};
 
     document.getElementById('ward_no').addEventListener('change', function() {
         var wardNo = this.value;
@@ -469,7 +501,7 @@ include("engine.php");
 
 
 
-
+<!-- --------------------------------------------Update property----------------------------------------------------------------- -->
 
 
 
@@ -488,8 +520,6 @@ include("engine.php");
                   <th>Street No</th>
                   <th>Contact No.</th>
                   <th>Property Type</th>
-                  <th>Latitude</th>
-                  <th>Longitude</th>
                   <th>Estmated Price</th>
                   <th>Total Rooms</th>
                   <th>Bedroom</th>
@@ -517,8 +547,6 @@ include("engine.php");
                   <td><?php echo $rows['Street_No'] ?></td>
                   <td><?php echo $rows['contact_no'] ?></td>
                   <td><?php echo $rows['property_type'] ?></td>
-                  <td><?php echo $rows['latitude'] ?></td>
-                  <td><?php echo $rows['longitude'] ?></td>
                   <td>Rs.<?php echo $rows['estimated_price'] ?></td>
                   <td><?php echo $rows['total_rooms'] ?></td>
                   <td><?php echo $rows['bedroom'] ?></td>
@@ -538,7 +566,7 @@ include("engine.php");
                 <form method="GET" action="delete.php">
                 <td>
                   <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
-                  <a data-toggle="pill" class="btn btn-success" name="edit_property" onclick="<?php $property_id = $rows['property_id'] ?>" href="#menu5">Edit</a><input type="submit" class="btn btn-danger" name="delete_property" value="Delete" >
+                  <a data-toggle="pill" class="btn btn-success" name="edit_property" onclick="<?php $property_id = $rows['property_id'] ?>" href="#menu5">Edit</a><br><br><input type="submit" class="btn btn-danger" name="delete_property" value="Delete" >
                   </td>
                 </tr>
                 </form>
@@ -559,16 +587,10 @@ include("engine.php");
       {
           while($rows=mysqli_fetch_assoc($result)){
           $property_id=$rows['property_id'];
+
        ?>
-
-
-
-
-<!-- _____________________________________________________________________UPDATE PROPERTY_________________________________________________________ -->
-
-
     <div id="menu5" class="tab-pane fade">
-      <center><h3>Edit Property Details</h3></center>
+      <center><h3>Edit Details</h3></center>
       <div class="container">
 
 <div id="map_canvas"></div>
@@ -576,96 +598,15 @@ include("engine.php");
 <form method="POST" enctype="multipart/form-data">
           <div class="row">
         <div class="col-sm-6">
-            <div class="form-group">
-              <label for="city">City:</label>
-              <select class="form-control" name="city" value="<?php echo $rows['city'] ?>">
-                      <option value="" >--Select city--</option>
-                      <option value="Pokhara">Pokhara</option>
-                </select>
-              <!-- <input type="text" class="form-control" id="city" placeholder="Enter City" name="city"> -->
-            </div>
-            <div class="form-group">
-              <label for="ward_no">Ward No.:</label>
-              <select class="form-control" name="ward_no" value="<?php echo $rows['ward_no'] ?>"  >
-                      <option value="" >--Select Ward No--</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                      <option value="13">13</option>
-                      <option value="14">14</option>
-                      <option value="15">15</option>
-                      <option value="16">16</option>
-                      <option value="17">17</option>
-                      <option value="18">18</option>
-                      <option value="19">19</option>
-                      <option value="20">20</option>
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                      <option value="32">32</option>
-                      <option value="33">33</option>
-
-                </select>
-            </div>
-            <div class="form-group">
-              <label for="Area">Area:</label>
-              <select class="form-control" name="Area" value="<?php echo $rows['Area']?>">                                                >
-                      <option value="" >--Select Area--</option>
-                      <option value="Airport Area">Airport Area</option>
-                      <option value="Archalbot Area">Archalbot Area</option>
-                      <option value="Bagar Area">Bagar Area</option>
-                      <option value="Birauta Area">Biruta Area</option>
-                      <option value="Bhalam Area">Bhalam Area</option>
-                      <option value="Bijayapur Area">Bijayapur Area</option>
-                      <option value="Buddha Chok Area">Buddha Chok Area</option>
-                      <option value="Baglung Buspark Area">Baglung Buspark Area</option>
-                      <option value="Chipledhuga Area">Chipledhuga Area</option>
-                      <option value="Chorepatan Area">Chorepatan Area</option>
-                      <option value="Deep Area">Deep Area</option>
-                      <option value="Damside Area">Damside Area</option>
-                      <option value="Gairapatan Area"> Gairapatan Area</option>
-                      <option value="Gharipatan Area">Gharipatan Area</option>
-                      <option value="Lakeside Area">Lakeside Area</option>
-                      <option value="Hallanchok Area">Hallanchok Area</option>
-                      <option value="Malepatan Area">Malepatan Area</option>
-                      <option value="Nayabajar Area">Nayabajar Area</option>
-                      <option value="Newroad Area">Newroad Area</option>
-                      <option value="Nayagau Area"> Nayagau Area</option>
-                      <option value="Pritivichok Area">Pritivichok Area</option>
-                      <option value="Parsyang Area">Parsyang Area</option>
-                      <option value="Simalchaur Area">Simalchaur Area</option>
-                      <option value="Shrijanachok Area">Shrijanacchok Area</option>
-                      <option value="Zerokm Area">ZeroKm Area</option>
-                </select>
-            </div>
-            <div class="form-group">
-              <label for="Street No">Street No:</label>
-              <input type="number" class="form-control" id="Street" placeholder="Enter Street No" name="Street" min=1 value="<?php echo $rows['Street_No'] ?>">
-            </div>
+           
             <div class="form-group">
               <label for="contact_no">Contact No.:</label>
               <input type="text" class="form-control" id="contact_no" placeholder="Enter Contact No." name="contact_no" value="<?php echo $rows['contact_no']?>">
             </div>
             <div class="form-group">
                <label for="property_type">Property Type:</label>
-                <select class="form-control" name="property_type" value="<?php echo $rows['property_type'] ?>">
-                      <option value="">--Select Property Type--</option>
+                <select class="form-control" name="property_type" value="">
+                      <option value="<?php echo $rows['property_type'] ?>"><?php echo $rows['property_type'] ?></option>
                       <option value="Full House Rent">Full House Rent</option>
                       <option value="Flat Rent">Flat Rent</option>
                       <option value="Room Rent">Room Rent</option>
@@ -675,20 +616,19 @@ include("engine.php");
                 <label for="estimated_price">Estimated Price:</label>
                 <input type="text" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="estimated_price" min=1000 value="<?php echo $rows['estimated_price'] ?>">
             </div>
-        </div>
+      
 
-        <div class="col-sm-6">
                   <div class="form-group">
                     <label for="total_rooms">Total No. of Rooms:</label>
                     <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms" min=1 value="<?php echo $rows['total_rooms'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="bedroom">No. of Bedroom:</label>
-                    <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" min=1 value="<?php echo $rows['bedroom'] ?>">
+                    <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" value="<?php echo $rows['bedroom'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="living_room">No. of Living Room:</label>
-                    <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room" min=0  value="<?php echo $rows['living_room'] ?>">
+                    <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room"  value="<?php echo $rows['living_room'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="kitchen">No. of Kitchen:</label>
@@ -701,27 +641,20 @@ include("engine.php");
                   </div>
                   <table class="table table-bordered" border="0">  
                   <tr> 
-                    <div class="form-group"> 
-                    <label><b>Latitude/Longitude:</b><span style="color:red; font-size: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Click on Button</span></label>                    
-                    <td><input type="text" name="latitude" placeholder="Latitude" id="latitude" class="form-control name_list"  required  /></td>
-                    <td><input type="text" name="longitude" placeholder="Longitude" id="longitude" class="form-control name_list"  required /></td> 
-                    <td><input type="button" value="Get Latitude and Longitude" onclick="getLocation()" class="btn btn-success col-lg-12"></td>  
-                  </div>
                   </tr>  
-                </table>
-                  <table class="table" id="dynamic_field">  
-                  <tr> 
-                    <div class="form-group"> 
-                    <label><b>Photos:</b></label>                    
-                    <td><input type="file" name="p_photo[]" placeholder="Photos" class="form-control name_list" required accept="image/*" /></td> 
-                    <td><button type="button" id="add" name="add" class="btn btn-success col-lg-12">Add More</button></td>  
-                  </div>
-                  </tr>  
+                  <div class="form-group">
+                    <label for="Booked">Booked:</label>
+                    <select class="form-control" name="booked" >
+                      <option value="<?php echo $rows['booked'] ?>"><?php echo $rows['booked'] ?></option>
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                </select>                  </div>
                 </table>
                 <input name="lat" type="text" id="lat" hidden>
                 <input name="lng" type="text" id="lng" hidden>
                   <hr>
                   <div class="form-group">
+                    <br>
                     <input type="submit" class="btn btn-primary btn-lg col-lg-12" value="Update Property" name="update_property">
                   </div>
                 </div>
@@ -751,6 +684,27 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
 ?>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- -----------------------------------------------------------------------Bookked Property________________________________________________________________ -->
 <div id="menu6" class="tab-pane fade">
       <center><h3>Booked Property</h3></center>
       <div class="container">
@@ -758,12 +712,11 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
               <table id="myTable">
                 <tr class="header">
+                <th> Booked Property id</th>
                   <th>Booked By</th>
                   <th>Booker Address</th>
-                  <th>Property Ward No</th>
-                  <th>Property  Area</th>
-                  <th>Property street</th>
-
+                  <th>Booker Phone no</th>
+                  <th>Booked Date</th>
                 </tr>
 
       <?php 
@@ -788,8 +741,8 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
           while($ro=mysqli_fetch_assoc($result2)){
             $property_id=$ro['property_id'];
 
-     //   $sql="SELECT * from booking where property_id='$property_id'";
-     //   $result=mysqli_query($db,$sql);
+        $sql="SELECT * from booking where property_id='$property_id'";
+        $result=mysqli_query($db,$sql);
 
         if(mysqli_num_rows($result)>0)
       {
@@ -798,6 +751,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
        ?>
                 <tr>    
         <?php 
+        $rental_id=$rows['rental_id'];
         $rental_id=$rows['rental_id'];
         $property_id=$rows['property_id'];
         $sql1="SELECT *from rental where rental_id='$rental_id'";
@@ -808,13 +762,12 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
           
        ?>
 
-
+         <td> <?php echo $rows['property_id']?></td>
         <td><?php echo $row['full_name']; ?></td>
         <td><?php echo $row['address']; ?></td>
+        <td><?php echo $row['phone_no']; ?></td>
+        <td><?php echo $rows['Booked_date']; ?></td>
 
-                  <td><?php echo $row['city']; ?></td>
-                  <td><?php echo $row['ward_no']; ?></td>
-                  <td><?php echo $row['Area']; ?></td>
                 </tr>
               
                 <?php

@@ -73,7 +73,7 @@ if (!$db) {
                 die("Connection failed: " . $db->connect_error);
             }
 
-            $sql = "SELECT * FROM add_property ORDER BY property_id DESC LIMIT 6";
+            $sql = "SELECT * FROM add_property where booked='No' ORDER BY property_id DESC LIMIT 6";
 
             $result = $db->query($sql);
 
@@ -94,7 +94,7 @@ if (!$db) {
                                         <p>{$row['city']}, {$row['Area']}</p>
                                     </div>
                                     <div class='icon'>
-                                        <i class='bx bx-bed'><span>{$row['bedroom']}</span></i>
+                                    <span>{$row['bedroom']}B{$row['living_room']}H{$row['kitchen']}k</span></i>
                                     </div>
                                 </div>
                             </a>
@@ -155,5 +155,7 @@ if (!$db) {
     <div class="copyright">
         <p>&#169; AAWAS All Right Reserved</p>
     </div>
+
+</div>
 </body>
 </html>

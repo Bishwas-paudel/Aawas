@@ -34,7 +34,7 @@ if(isset($_SESSION["email"]) && !empty($_SESSION['email'])){
 }
 
 else {?>
-      <li><a href="../how-to-register.php"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+      <li><a href="../register_operation.php"><span class="glyphicon glyphicon-user"></span> Register</a></li>
       <li><a href="../how-to-login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     <?php } ?>
     </ul>

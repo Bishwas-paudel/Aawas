@@ -29,7 +29,8 @@ include("navbar.php");
             <div style="overflow-x:auto;">
               <table id="myTable">
                 <tr class="header">
-                  <th>Id.</th>
+                <th> Owner Id</th>
+                  <th> Property Id</th>
                   <th>City</th>
                   <th>Ward No.</th>
                   <th>Area</th>
@@ -58,10 +59,10 @@ include("navbar.php");
           $property_id=$rows['property_id'];
        ?>
                 <tr>
+                <td><?php echo $rows['owner_id'] ?></td>
                   <td><?php echo $rows['property_id'] ?></td>
                   <td><?php echo $rows['city'] ?></td>
                   <td><?php echo $rows['ward_no'] ?></td>
-                 
                   <td><?php echo $rows['Area'] ?></td>
                   <td><?php  echo $rows['Street_No']?>
                   <td><?php echo $rows['contact_no'] ?></td>
@@ -83,6 +84,8 @@ include("navbar.php");
                   <img src="../owner/<?php echo $row['p_photo'] ?>" width="50px">
                 <?php }}}} ?>
                 </td>
+        
+
                 </tr>
               </table> 
             </div>

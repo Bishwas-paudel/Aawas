@@ -68,12 +68,10 @@ function rental_login() {
         session_start();
         $_SESSION['email'] = $data['email'];
         header('Location:index2.php');
-        echo"login vayo ????????????????????";
     } else {
-        echo"login vayo ????????????????????";
         session_start();
-        $_SESSION['login_error'] = "Incorrect Email/Password or not registered.";
         header('Location: rental-login.php');
+       
     }
 }
 

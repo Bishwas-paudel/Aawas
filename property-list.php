@@ -81,7 +81,7 @@ header {
     </header>
 
 <?php 
-$sql="SELECT * FROM add_property";
+$sql="SELECT * FROM add_property where booked='No'";
 $query=mysqli_query($db,$sql);
 
 if(mysqli_num_rows($query)>0) {

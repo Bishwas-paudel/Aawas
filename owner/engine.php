@@ -31,6 +31,10 @@ if (isset($_POST['owner_update'])) {
     owner_update();
 }
 
+if (isset($_POST['owner_update'])) {
+    owner_update();
+}
+
 function add_property() {
     try {
         global $property_id, $city, $ward_no, $area, $street_No, $contact_no, $property_type, $estimated_price, $total_rooms, $bedroom, $living_room, $kitchen, $description, $latitude, $longitude, $booked, $owner_id, $db;
@@ -43,11 +47,7 @@ function add_property() {
         $property_type = validate($_POST['property_type']);
         $estimated_price = validate($_POST['estimated_price']);
         $total_rooms = validate($_POST['total_rooms']);
-        $bedroom = validate($_POST['bedroom']);
-        $living_room = validate($_POST['living_room']);
-        $kitchen = validate($_POST['kitchen']);
-
-        $bedroom = isset($_POST['bedroom']) ? validate($_POST['bedroom']) : 0;
+        $bedroom = isset($_POST['bedroom'])?validate($_POST['bedroom']) : 0;
         $living_room = isset($_POST['living_room']) ? validate($_POST['living_room']) : 0;
         $kitchen = isset($_POST['kitchen']) ? validate($_POST['kitchen']) : 0;
         
@@ -130,9 +130,9 @@ function owner_update() {
     $phone_no = validate($_POST['phone_no']);
     $address = validate($_POST['address']);
     $id_type = validate($_POST['id_type']);
-    $password = md5($password);
+    $password = md5($_POST['password']);
 
-    $sql = "UPDATE owner SET full_name='$full_name', email='$email', phone_no='$phone_no', address='$address', id_type='$id_type' WHERE owner_id='$owner_id'";
+    $sql = "UPDATE owner SET full_name='$full_name', email='$email', phone_no='$phone_no', address='$address', id_type='$id_type' , 'password'=$password WHERE owner_id='$owner_id'";
     $query = mysqli_query($db, $sql);
 
     if (!empty($query)) {

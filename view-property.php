@@ -55,15 +55,15 @@ input[type="submit"]:hover {
 include('connection/connection.php');
 include('navbar.php');
 include('review-operation.php');
+include('booking-engine.php');
 ?>
 
 
 
 <?php
-
-
-	$property_id;
-  $property_id =$_GET['property_id'];
+  
+   global $property_id ;
+   $property_id = $_GET['property_id'];
     $sql="SELECT * from add_property where property_id='$property_id'";
 	$query=mysqli_query($db,$sql);
 
@@ -210,6 +210,7 @@ include('review-operation.php');
     <input type="submit" value="Submit">
 
 </div>
+
 
 
 <?php 

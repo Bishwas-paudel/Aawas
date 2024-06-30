@@ -1,0 +1,141 @@
+/* Root Variables */
+:root {
+ --main-color: #2288ff;
+ --second-color: #192f6a;
+ --text-color: #314862;
+ --bg-color: #ffffff;
+ --box-shadow: 2px 2px 18px rgb(14 52 54 / 15%);
+ --button-hover-bg: #0056b3;
+ --button-gradient: linear-gradient(45deg, #2288ff, #0056b3);
+}
+
+body {
+margin-top: 2px;
+ font-family: 'Arial', sans-serif;
+ background-color: var(--bg-color);
+ color: var(--text-color);
+ padding: 0;
+ margin: 0;
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+}
+
+.container-fluid {
+ padding: 5px;
+}
+
+.sign-in-form-section {
+ margin-top: 2px;
+ background-color: var(--bg-color);
+ box-shadow: var(--box-shadow);
+ border-radius: 10px;
+ padding: 10px;
+ margin-top: 100px;
+ max-width: 600px;
+}
+
+.sign-up {
+ padding: 20px;
+}
+
+h3 {
+ color: var(--second-color);
+ margin-bottom: 20px;
+}
+
+p {
+ color: var(--text-color);
+ margin-bottom: 40px;
+}
+
+.btn {
+ background: var(--button-gradient);
+ color: var(--bg-color);
+ border: none;
+ border-radius: 30px;
+ padding: 12px 30px;
+ margin: 10px;
+ cursor: pointer;
+ transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+ width: 200px;
+ font-size: 16px;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+ display: inline-block;
+}
+
+.btn:hover {
+ background: var(--button-hover-bg);
+ transform: translateY(-3px);
+ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+ transform: translateY(1px);
+}
+
+.footer {
+ background-color: var(--second-color);
+ color: var(--bg-color);
+ padding: 20px 0;
+ margin-top: auto;
+}
+
+.footer-container {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ align-items: flex-start;
+}
+
+.footer-box {
+ flex: 1;
+ padding: 20px;
+ min-width: 200px;
+}
+
+.footer-box h3 {
+ margin-bottom: 20px;
+}
+
+.footer-box a {
+ color: var(--bg-color);
+ text-decoration: none;
+ display: block;
+ margin-bottom: 10px;
+}
+
+.footer-box a:hover {
+ text-decoration: underline;
+}
+
+.social a {
+ color: var(--bg-color);
+ margin-right: 10px;
+ font-size: 1.5em;
+}
+
+.copyright {
+ background-color: var(--main-color);
+ color: var(--bg-color);
+ text-align: center;
+ padding: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ .sign-in-form-section {
+   padding: 20px;
+ }
+ .footer-container {
+   flex-direction: column;
+   text-align: center;
+ }
+}
+
+@media (max-width: 576px) {
+ .btn {
+   width: 100%;
+   margin: 10px 0;
+ }
+}
