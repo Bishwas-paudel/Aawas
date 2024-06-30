@@ -159,8 +159,9 @@ if(isset($_SESSION["email"])){
     <?php include('navbar.php'); ?>
     <section class="container">
         <div class="sign-in-form-section">
-            <h3>How do you want to Register?</h3>
-            <p>If you want to register as a Rental click on Rental register button otherwise click on owner register button.</p>
+            <h2>How do you want to Register?</h2>
+            <hr>
+            <p style="font-size: 18px;">If you want to register as a Rental click on Rental register button otherwise click on owner register button.</p>
             <a href="rental-register.php">
                 <button type="submit" class="btn">Rental Register</button>
             </a>

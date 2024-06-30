@@ -21,6 +21,7 @@
     nav {
       background-color: var(--secondary-color);
       color: var(--footer-text-color);
+      position: sticky;
     }
 
     nav .navbar-nav > li > a {

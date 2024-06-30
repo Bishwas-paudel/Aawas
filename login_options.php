@@ -33,7 +33,8 @@ include("navbar.php");
 
     <section class="footer">
         <div class="footer-container container">
-            <h2>Rent Room</h2>
+            <h2>Thanks For Visiting us</h2>
+            <br>
             <div class="footer-box">
                 <h3>Quick Links</h3>
                 <a href="#">Home</a>
@@ -50,7 +51,7 @@ include("navbar.php");
                 <a href="#">+9866317885</a>
                 <a href="#">info@aawas.com.np</a>
                 <br>
-                <p>&#169; Aawas All Right Reserved</p>
+           
             </div>
         </div>
     </section>
