@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     :root {
-            --primary-color: #007bff;
+            --primary-color:purple;
             --secondary-color: #192f6a;
             --text-color: #314862;
             --background-color: #f5f5f5;
@@ -81,12 +81,11 @@
             <li><a href="profile.php">Profile</a></li>
             <li><a href="booked-property.php">Booked Property</a></li>
             <li><a href="logout.php">Logout</a></li>
-            <li><a href="changepassword.php">Change Password</a></li>
           </ul>
         </li>
         <?php } else { ?>
-        <li><a href="register_options.php"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-        <li><a href="login_options.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <?php } ?>
       </ul>
     </div>

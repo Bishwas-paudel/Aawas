@@ -1,11 +1,9 @@
 <?php
 include("navbar.php");
-include("rental-operation.php");
-global $error_msg;
 ?>
 <div class="container">
-  <h3 style="font-weight: bold; text-align: center;">Rental Register</h3><hr><br>
-  <form method="POST" enctype="multipart/form-data" onsubmit="return Validate()">
+  <h3 style="font-weight: bold; text-align: center;">Enter Your Details </h3><hr><br>
+  <form method="POST" enctype="multipart/form-data" action="register-operation.php" onsubmit="return Validate()">
     <div class="form-group">
       <label for="full_name">Full Name:</label>
       <input type="text" class="form-control" id="full_name" placeholder="Enter Full Name" name="full_name" required>
@@ -14,11 +12,6 @@ global $error_msg;
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
-      <?php
-      if (isset($_SESSION['error_msg'])): ?>
-          <span style="color:red;"><?php echo $_SESSION['error_msg']; ?></span>
-          <?php unset($_SESSION['error_msg']); // Clear the error message after displaying ?>
-      <?php endif; ?>
       <small id="emailError" class="form-text text-danger"></small>
     </div>
     <div class="form-group">
@@ -44,6 +37,13 @@ global $error_msg;
       <input type="text" class="form-control" id="address" placeholder="Enter Address" name="address" required>
     </div>
     <div class="form-group">
+      <label for="role">Role:</label>
+      <select class="form-control" name="role" required>
+        <option value="Owner">Owner</option>
+        <option value="Rental">Rental</option>
+      </select>    
+    </div>
+    <div class="form-group">
       <label for="id_type">Type of ID:</label>
       <select class="form-control" name="id_type" required>
         <option>Citizenship</option>
@@ -59,9 +59,9 @@ global $error_msg;
       <img src="" id="output_image" height="200px">
     </div>
     <hr>
-    <center><button id="submit" name="rental_register" class="btn btn-primary btn-block">Register</button></center><br>
+    <center><button type="submit" id="submit" name="register" class="btn btn-primary btn-block">Register</button></center><br>
     <div class="form-group text-right">
-      <label class="">Register as a <a href="owner-register.php">Owner</a>?</label><br>
+      <label class="">Already have account <a href="login.php">Log In</a>?</label><br>
     </div><br><br>
   </form>
 </div>

@@ -40,7 +40,7 @@ if (isset($_SESSION["email"])) {
     <header>
         <div class="nav container">
             <a href="index.php" class="logo"><i class='bx bx-home'></i>AAWAS</a>
-            <a href="register_options.php" class="btn">Register</a>
+            <a href="register.php" class="btn">Register</a>
         </div>
     </header>
 
@@ -54,19 +54,19 @@ if (isset($_SESSION["email"])) {
                     <span class='closebtn' onclick=\"this.parentElement.style.display='none';\">&times;</span>
                     <strong>{$_SESSION['login_error']}</strong> Click here to <a href='owner-register.php' style='color: lightblue;'><b>Register</b></a>.
                     </div>";
-                unset($_SESSION['login_error']); // Clear the error after displaying it
+                unset($_SESSION['login_error']);
             }
             ?>
-
-            <form method="POST" action="owner-operation.php">
+            <form method="POST" action="login-operation.php">
                 <span>Enter your email address</span>
                 <input type="email" name="email" placeholder="Enter Email" required>
                 <span>Enter your password</span>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required>     
+            <br>  
                 <input type="submit" name="owner_login" value="Login" class="button" style="border-radius: 10px;">
-                <a href="#">Forget Password?</a>
+               
             </form>
-            <a href="owner-register.php" class="btn">Register now</a>
+            <a href="register.php" class="btn">Register now</a>
         </div>
         <div class="login-image" style="margin-left: 200px;">
             <video loop height="500px" width="500px" " autoplay>
@@ -75,7 +75,6 @@ if (isset($_SESSION["email"])) {
             </video>
         </div>
     </div>
-    
     <section class="footer">
         <div class="footer-container container">
             <h2>Rent Room</h2>

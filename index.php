@@ -30,14 +30,14 @@ if (!$db) {
                 <li><a href="contactus.php">Contact Us</a></li>
                 <li><a href="property-list.php">Properties</a></li>
             </ul>
-            <a href="login_options.php" class="btn">Log In</a>
+            <a href="login.php" class="btn">Log In</a>
         </div>
     </header>
     <!-- Home section -->
     <section class="home container" id="home">
         <div class="home-text">
             <h1>Find Your Next <br>Perfect Place To <br>Live.</h1>
-            <a href="register_options.php" class="btn">Sign Up</a>
+            <a href="register.php" class="btn">Sign Up</a>
         </div>
     </section>
     <!-- Sales -->

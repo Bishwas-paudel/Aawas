@@ -118,7 +118,7 @@
                 <li><a href="contactus.php">Contact Us</a></li>
                 <li><a href="property-list.php">Properties</a></li>
             </ul>
-            <a href="login_options.php" class="btn">Log In</a>
+            <a href="login.php" class="btn">Log In</a>
         </div>
     </header>
     <section></section>

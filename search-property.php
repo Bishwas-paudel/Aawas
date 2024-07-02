@@ -90,7 +90,9 @@ if (mysqli_num_rows($query) > 0) {
         }
 ?>
 
-  <h4><b><?php echo $rows['property_type']; ?></b></h4> 
+  <h4><b><?php echo $rows['property_type']; ?> |&nbsp;<?php echo $rows['Area']; ?> ,&nbsp;<?php echo $rows['city']; ?></b></h4> 
+  <h4><b> RS.<?php echo $rows['estimated_price']; ?>/Month</b></h4> 
+
   <p><?php echo '<a href="view-property.php?property_id='.$rows['property_id'].'" class="btn btn-lg btn-primary btn-block">View Property</a><br>'; ?></p><br>
 </div>
 </div>

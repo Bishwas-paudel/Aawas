@@ -244,7 +244,7 @@
                 <option value="1000-5000">1000-5000</option>
                 <option value="5000-10000">5000-10000</option>
                 <option value="10000-20000">10000-20000</option>
-                <option value="10000-30000">10000-30000</option>
+                <option value="10000-30000">20000-30000</option>
             </select>
             <button id="search-button" type="submit">Search</button>
         </form>
