@@ -9,12 +9,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aawas.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body, html {
             top: 20px;
             height: 100%;
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'poppins', Helvetica, sans-serif;
         }
 
         .bg {
@@ -39,11 +42,6 @@
         .active-cyan-3 input[type=text] {
             border: 1px solid #4dd0e1;
             box-shadow: 0 0 0 1px #4dd0e1;
-        }
-
-        .blank-div {
-            height: 100px;
-            width: 100%;
         }
 
         footer {
@@ -131,7 +129,7 @@
 
         #search-button {
             font-size: larger;
-            background-color: chocolate;
+            background-color:#9448d2;
             border: none;
             padding: 10px 20px;
             margin-left: 125px;
@@ -153,26 +151,41 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            margin: 100px 20px 20px; /* Adjusted top margin for fixed navbar */
-        }
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 10px;
+            margin: 150px 20px 20px;
+ /* Adjusted top margin for fixed navbar */
+}
 
         .card {
+            padding: 15px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             text-align: center;
-            font-family: Arial;
-        }
+    
+            }
 
         .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             opacity: 0.8;
-        }
-
+            }
+            .card h4,p{
+                position: relative;
+                top: 10px;
+            }
+            .card a{
+                border-radius: 5px;
+                top: 10px;
+                position: relative;
+                background-color: #9448d2;
+                color: white;
+                padding: 4px 30px;
+            }
         .container {
             padding: 2px 16px;
-        }
+            }
+
 
         .image {
             display: block;
@@ -180,6 +193,7 @@
             width: 100%;
             max-width: 250px;
             height: 57%;
+            border-radius:10px;
         }
 
         .loadmore {
@@ -190,13 +204,17 @@
         }
 
         #load {
-            font-size: larger;
-            background-color: #4dd0e1;
+            font-weight:bolder;
+            background-color: #9448d2;
             border: none;
             padding: 10px 20px;
             border-radius: 25px;
             color: white;
             cursor: pointer;
+        }
+        #load:hover{
+            scale: 1.05;
+            background-color: #b16bea;
         }
 
         @media (max-width: 768px) {
@@ -218,14 +236,237 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Navbar section css */
+        /* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+  list-style: none;
+  text-decoration: none;
+}
+:root {
+  --main-color:  #9448d2;
+  --second-color: #192f6a;
+  --text-color: #314862;
+  --bg-color: #ffffff;
+  --box-shadow: 2px 2px 18px rgb(14 52 54 / 15%);
+}
+/* nav section css */
+header {
+  position: relative;
+  padding: 0;
+}
+
+.navbar {
+  width: 100%;
+  /* background-color: rgb(246, 210, 241); */
+  height: 80px;
+  max-width: 1800px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo img {
+  margin: 30px 15px 5px -15px;
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #313638;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+ul li a:hover {
+  color: #9448d2;
+}
+/* HEADER */
+
+
+.navbar .links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .Btns {
+  display: flex;
+  gap: 2rem;
+  border: 0.5px;
+  border-radius: 3px;
+}
+
+/* Action buttons */
+.action_btn {
+  background-color: #9448d2;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+  padding: 0.5rem 1rem;
+}
+
+.action_btn:hover {
+  scale: 1.05;
+  background-color: #b16bea;
+}
+
+.action_btn:active {
+  scale: 0.95;
+}
+
+/* footer section css */
+.footer {
+  position: relative;
+  height: 60vh;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border-radius: 5rem 5rem 0 0;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+  gap: 2rem;
+}
+.footer-container .footerLogo img{
+  position: relative;
+  top:-5%;
+  left:20%;
+  width: 50%;
+}
+.footer-container h2 {
+    position: relative;
+    top: -25%;
+    left: 25%;
+    font-size: 1.7rem;
+    font-weight: 800;
+}
+.footer-box {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.footer-box h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-align: left;
+}
+.footer-box a {
+  font-size: 0.9rem;
+  color: var(--bg-color);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.footer-box a:hover {
+  color: var(--second-color);
+}
+.social a {
+  font-size: 30px;
+  margin-right: 1rem;
+}
+.social a:hover {
+  color: var(--second-color);
+}
+.copyright {
+  padding: 20px;
+  text-align: center;
+  color: var(--bg-color);
+  background: var(--main-color);
+}
+/* Style the dropdown button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-menu a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Style the dropdown button when the dropdown is active */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-    <div style="position:sticky;">
-      <?php
-    include("navbar.php"); ?>
-    </div>
+    <header>
+    <div class="navbar">
+        <div class="logo"><a href="index.php"> <img src="images/AawasLogo2.png" alt="Logo"></a></div>
+            <ul class="links">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="aboutus.php">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="contactus.php">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+                </ul>
+                <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="booked-property.php">Booked Property</a></li>
+            <li><a href="logout.php">Logout</a></li>
+          </ul>
+        </li>
+
+
+
+            </div>
+   </div>
+    </header>
 
     <div class="bg"></div><br><br><br>
 
@@ -244,13 +485,12 @@
                 <option value="1000-5000">1000-5000</option>
                 <option value="5000-10000">5000-10000</option>
                 <option value="10000-20000">10000-20000</option>
-                <option value="10000-30000">20000-30000</option>
+                <option value="10000-30000">10000-30000</option>
             </select>
             <button id="search-button" type="submit">Search</button>
         </form>
     </div>
-    <br><br>
-    <div class="blank-div"></div>
+    <br>
 
     <?php
     global $db;
@@ -292,44 +532,46 @@
     ?>
     <br><br>
     <div class="loadmore">
-        <button id="load">LOAD MORE</button>
+        <!-- <input type="submit" href="#" value="Load More" id="load"> -->
+        <button id="load"><a href="#" style="Color:white">Load More</a></button>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>About Us</h3>
-                    <p>Our mission is to provide you with a comfortable and enjoyable living experience in a home that you can truly call your own. We understand the importance of finding the perfect place to live, and we are committed to helping you make the most of your time with us.</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Rooms</a></li>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h3>Get In Touch</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i>Pokhara Nepal</li>
-                        <li><i class="fas fa-phone"></i>061-152112</li>
-                        <li><i class="fas fa-envelope"></i> info@Aawas.com</li>
-                    </ul>
+
+<!-- footer Section -->
+ <section class="footer">
+        <div class="footer-container">
+            <div class="footerLogo">
+            <a href="index.php"><img src="images/AawasLogoWhite.png" alt="Logo"></a>
+            <h2>Thank You For Visiting Us!</h2>
+            </div>
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <a href="aboutus.php">About Us</a>
+                <a href="contactus.php">Contact Us</a>
+                <a href="#">Rates</a>
+            </div>
+            <div class="footer-box">
+                <h3>Locations</h3>
+                <a href="#">Birauta</a>
+                <a href="#">Lamachour</a>
+                <a href="#">Bagar</a>
+                <a href="#">Lakeside</a>
+            </div>
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <a href="tel:9866317885">9866317885</a>
+                <a href="mailto:info@aawas.com.np">info@aawas.com.np</a>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
                 </div>
             </div>
         </div>
-        <div class="bottom-bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>&copy; 2024 Aawas All Rights Reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </section>
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>&#169; 2024 Aawas All Right Reserved</p>
+    </div>
 </body>
 </html>

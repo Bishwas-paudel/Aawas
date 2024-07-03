@@ -18,7 +18,7 @@
   <!-- Links -->
   <ul class="nav navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="admin/admin-index.php">Home</a>
+      <a class="nav-link" href="index2.php">Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">About Us</a>

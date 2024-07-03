@@ -8,8 +8,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
+    /* google font importing */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+   
+   
     :root {
-            --primary-color:purple;
+            --primary-color: #007bff;
             --secondary-color: #192f6a;
             --text-color: #314862;
             --background-color: #f5f5f5;
@@ -17,62 +21,117 @@
             --button-gradient: linear-gradient(45deg, #2288ff, #0056b3);
             --footer-background: #333;
             --footer-text-color: #fff;
-        }
-    nav {
-      background-color: var(--secondary-color);
-      color: var(--footer-text-color);
-      position: sticky;
-    }
+          }
+  
+  
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+  list-style: none;
+  text-decoration: none;
+}
 
-    nav .navbar-nav > li > a {
-      color: var(--footer-text-color);
-      font-size: 20px;
-      transition: color 0.3s ease;
-    }
+        /* nav section css */
+header {
+  position: relative;
+  padding: 0;
+}
 
-    nav .navbar-nav > li > a:hover,
-    nav .navbar-nav > li > a:focus {
-      color: var(--primary-color);
-    }
+.navbar {
+  width: 100%;
+  /* background-color: rgb(246, 210, 241); */
+  height: 80px;
+  max-width: 2000px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo img {
+  margin: 30px 15px 5px -15px;
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+ul li {
+  list-style: none;
+}
 
-    nav .navbar-header img {
-      height: 70px;
-    }
+ul li a {
+  text-decoration: none;
+  color: #313638;
+  font-size: 2rem;
+  font-weight: bolder;
+}
 
-    nav .dropdown-menu {
-      background-color: var(--secondary-color);
-      color: var(--footer-text-color);
-    }
+ul li a:hover {
+  text-decoration:none;
+  color: #9448d2;
+}
+/* HEADER */
 
-    nav .dropdown-menu > li > a {
-      color: var(--footer-text-color);
-    }
 
-    nav .dropdown-menu > li > a:hover {
-      background-color: var(--primary-color);
-      color: var(--footer-text-color);
-    }
+.navbar .links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .Btns {
+  display: flex;
+  gap: 2rem;
+  border: 0.5px;
+  border-radius: 3px;
+}
+
+/* Action buttons */
+.action_btn {
+  background-color: #9448d2;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+  padding: 0.5rem 1rem;
+}
+
+.action_btn:hover {
+  text-decoration:none;
+  scale: 1.05;
+  background-color: #b16bea;
+  color:White;
+}
+
+.action_btn:active {
+  scale: 0.95;
+}
+.btns{
+  display: flex;
+}
+   
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-sm navbar-light justify-content-between">
-    <div class="container-fluid">
-      <a class="navbar-header" href="<?php echo (isset($_SESSION['email']) && !empty($_SESSION['email'])) ? 'index2.php' : 'index.php'; ?>">
-        <img src="images/logo.png" alt="logo">
-      </a>
+
+<header>
+    <div class="navbar">
+        <div class="logo"><a href="<?php echo (isset($_SESSION['email']) && !empty($_SESSION['email'])) ? 'index2.php' : 'index.php'; ?>"> 
+          <img src="images/AawasLogo2.png" alt="Logo">
+        </a>
+      </div>
       <!-- Links -->
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo (isset($_SESSION['email']) && !empty($_SESSION['email'])) ? 'index2.php' : 'index.php'; ?>">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Contact Us</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
+            <ul class="links">
+                <li><a href="<?php echo (isset($_SESSION['email']) && !empty($_SESSION['email'])) ? 'index2.php' : 'index.php'; ?>">Home</a></li>
+                <li><a href="aboutus.php">About</a></li>
+                <li><a href="contactus.php">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
         <?php if(isset($_SESSION["email"]) && !empty($_SESSION['email'])) { ?>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> My Profile
@@ -84,11 +143,17 @@
           </ul>
         </li>
         <?php } else { ?>
-        <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <div class="btns">
+                 <a href="register.php" class="action_btn">Register</a>
+                 <a href="login.php" class="action_btn">Login</a>
+                 </div>
         <?php } ?>
       </ul>
-    </div>
-  </nav>
+               
+                
+            </div>
+   </div>
+</header>
+  
 </body>
 </html>

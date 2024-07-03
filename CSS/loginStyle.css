@@ -1,15 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+  list-style: none;
+  text-decoration: none;
+}
 /* Root Variables */
 :root {
- --main-color: #2288ff;
- --second-color: #192f6a;
- --text-color: #314862;
- --bg-color: #ffffff;
- --box-shadow: 2px 2px 18px rgb(14 52 54 / 15%);
- --button-hover-bg: #0056b3;
+  --main-color:  #9448d2;
+  --second-color: #192f6a;
+  --text-color: #314862;
+  --bg-color: #ffffff;
+  --box-shadow: 2px 2px 18px rgb(14 52 54 / 15%);
+ --button-hover-bg: #b16bea;
  --button-gradient: linear-gradient(45deg, #2288ff, #0056b3);
 }
 
-body {
+/* body {
 margin-top: 2px;
  font-family: 'Arial', sans-serif;
  background-color: var(--bg-color);
@@ -19,38 +31,157 @@ margin-top: 2px;
  display: flex;
  flex-direction: column;
  min-height: 100vh;
+} */
+body {
+  height: 100vh;
+  background-color: #faf5ff;
+  background-size: cover;
+  background-position: center;
 }
 
-.container-fluid {
- padding: 5px;
+
+
+/* Navbar section css */
+header {
+  position: relative;
+  padding: 0;
 }
 
-.sign-in-form-section {
- margin-top: 2px;
- background-color: var(--bg-color);
- box-shadow: var(--box-shadow);
- border-radius: 10px;
- padding: 10px;
- margin-top: 100px;
- max-width: 600px;
+.navbar {
+  width: 100%;
+  /* background-color: rgb(246, 210, 241); */
+  height: 60px;
+  max-width: 1500px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.sign-up {
- padding: 20px;
+.navbar .logo img {
+  margin: 30px 15px 5px -15px;
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+.navbar .links {
+  display: flex;
+  gap: 2rem;
+}
+/* Menu in nav bar css */
+ul li {
+  list-style: none;
 }
 
-h3 {
- color: var(--second-color);
- margin-bottom: 20px;
+ul li a {
+  text-decoration: none;
+  color: #313638;
+  font-size: 1rem;
+  font-weight: bolder;
 }
 
-p {
- color: var(--text-color);
- margin-bottom: 40px;
+ul li a:hover {
+  color: #9448d2;
 }
 
+.navbar .Btns {
+  display: flex;
+  gap: 0.1rem;
+  border: 0.5px;
+  border-radius: 3px;
+}
+
+
+/* Action Buttons css */
+.action_btn {
+  background-color: #9448d2;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+  padding: 0.5rem 1rem;
+}
+
+.action_btn:hover {
+  scale: 1.05;
+  background-color: #b16bea;
+}
+
+.action_btn:active {
+  scale: 0.95;
+}
+
+
+
+/* Container Section for options css */
+    .container {
+      position: relative;
+      top: 100px;
+      height: 100vh;
+      max-width: 1370px;
+      padding: 20px;
+      }
+
+      .sign-in-form-section {
+          background-color:#fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          padding: 60px;
+          text-align: center;    
+          display: table-cell;    
+          vertical-align: middle;
+          position: absolute;
+          left: 20%;
+          top: 15%;
+          bottom:15%;
+          right: 15%;
+          height:60vh;
+      }
+
+      .sign-in-form-section h3 {
+          font-size: 2rem;
+          color: Black;
+          margin-bottom: 20px;
+      }
+
+      .sign-in-form-section p {
+          font-size: 1.1rem;
+          color: Black;
+          margin-bottom: 40px;
+      }
+
+      .btn {
+background-color:var(--primary-color);
+color:azure;
+border: none;
+border-radius: 30px;
+padding: 12px 30px;
+margin: 10px;
+cursor: pointer;
+transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+width: 200px;
+font-size: 16px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+display: inline-block;
+}
+
+
+.btn:hover {
+background-color:#b16bea;
+transform: translateY(-3px);
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+transform: translateY(1px);
+}
+/* Btn section css */
 .btn {
- background: var(--button-gradient);
+ background-color: var(--main-color);
  color: var(--bg-color);
  border: none;
  border-radius: 30px;
@@ -74,53 +205,78 @@ p {
  transform: translateY(1px);
 }
 
+
+
+
+
+/* footer section css */
 .footer {
- background-color: var(--second-color);
- color: var(--bg-color);
- padding: 20px 0;
- margin-top: auto;
+  position: relative;
+  height: 60vh;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border-radius: 5rem 5rem 0 0;
 }
-
 .footer-container {
- display: flex;
- flex-wrap: wrap;
- justify-content: space-between;
- align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+  gap: 2rem;
 }
-
+.footer-container .footerLogo img{
+  position: relative;
+  top: 5%;
+  left: 20%;
+  width: 50%;
+}
+.footer-container h2 {
+  position: relative;
+  top: -20%;
+  left: 25%;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
 .footer-box {
- flex: 1;
- padding: 20px;
- min-width: 200px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
-
 .footer-box h3 {
- margin-bottom: 20px;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-align: left;
 }
-
 .footer-box a {
- color: var(--bg-color);
- text-decoration: none;
- display: block;
- margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: var(--bg-color);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
 }
-
 .footer-box a:hover {
- text-decoration: underline;
+  color: var(--second-color);
 }
-
 .social a {
- color: var(--bg-color);
- margin-right: 10px;
- font-size: 1.5em;
+  font-size: 30px;
+  margin-right: 1rem;
+}
+.social a:hover {
+  color: var(--second-color);
+}
+.copyright {
+  padding: 20px;
+  text-align: center;
+  color: var(--bg-color);
+  background: var(--main-color);
 }
 
-.copyright {
- background-color: var(--main-color);
- color: var(--bg-color);
- text-align: center;
- padding: 10px 0;
-}
+
+
+
+
+
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

@@ -13,12 +13,12 @@
             padding: 0;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f7f7;
+            font-family: 'poppins', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #faf5ff;
         }
        
         main {
-       height: 500px;
+            height: 500px;
             max-width: 1300px;
             margin: 9px auto;
             padding: 20px;
@@ -57,13 +57,18 @@
             width: 100%;
         }
         .form-container button {
-            background-color: #6c63ff;
+            background-color: var(--main-color);
             color: #fff;
             padding: 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
+        }
+        
+        .form-container button:hover {
+            scale: 1.05;
+            background-color: #b16bea;
         }
         .contact-info {
             margin-top: 20px;
@@ -73,9 +78,14 @@
             font-size: 1.5rem;
             color: #333;
         }
+        .contact-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.0rem;
+            color: #555;
+        }
         .contact-info p {
             margin-bottom: 10px;
-            font-size: 1.4rem;
+            font-size: 0.85rem;
             color: #555;
         }
         .contact-info .icon {
@@ -87,7 +97,7 @@
         }
         .contact-info .icon i {
             margin-right: 10px;
-            color: dodgerblue;
+            color: var(--main-color);
             font-size: 1.5rem;
         }
         footer {
@@ -103,24 +113,31 @@
             font-size: 1.2rem;
             margin: 0;
         }
+        .copyright{
+                border-radius:5rem 5rem 0 0;
+            }
     </style>
 </head>
 <body>
    <!-- Navbar section -->
-   <header>
-        <div class="nav container">
-            <a href="index.php" class="logo"><i class='bx bx-home'></i>AAWAS</a>
-            <input type="checkbox" id="menu">
-            <label for="menu"><i class='bx bx-menu' id="menu-icon"></i></label>
-            <ul class="navbar">
+    <header>
+    <div class="navbar">
+        <div class="logo"><a href="index.php"> <img src="images/AawasLogo2.png" alt="Logo"></a></div>
+            <ul class="links">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="aboutus .php">About Us</a></li>
-                <li><a href="contactus.php">Contact Us</a></li>
-                <li><a href="property-list.php">Properties</a></li>
-            </ul>
-            <a href="login.php" class="btn">Log In</a>
-        </div>
-    </header>
+                <li><a href="aboutus.php">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="contactus.php">Contact</a></li>
+                <li><a href="#">Blog</a></li>
+                </ul>
+                 <!--Login Button in Navbar  -->
+                 <div class="login">
+                <a href="login_options.php" class="action_btn">Login</a>
+                <a href="login_options.php" class="action_btn">Register</a>
+            </div>
+</div>
+   </div>
+</header>
     <section></section>
     <main>
         <div class="left-section">
@@ -137,18 +154,18 @@
         <div class="right-section">
             <div class="contact-info">
                 <h2>Contact Us</h2>
-                <p>Contact us for any types of problem you face in this pages</p>
+                <h3>Contact us for any types of problem you face in this pages</h3>
                 <div class="icon">
                     <i class='bx bx-phone'></i>
-                    <span>+977 9866317885</span>
+                    <p>+977 9866317885</p>
                 </div>
                 <div class="icon">
                     <i class='bx bx-envelope'></i>
-                    <span>info@aawas.com.np.com</span>
+                    <p>info@aawas.com.np</p>
                 </div>
                 <div class="icon">
                     <i class='bx bx-map'></i>
-                    <span>Simalchaur Pokhara Nepal</span>
+                    <p>Simalchaur-08, Pokhara, Nepal</p>
                 </div>
             </div>
         </div>
@@ -175,8 +192,9 @@
                     }
                 }
                 ?>
-    <footer>
-        <p>&copy; 2024 Aawas. All rights reserved.</p>
-    </footer>
+   
+    <div class="copyright">
+        <p>&#169; 2024 Aawas All Right Reserved</p>
+        </div>
 </body>
 </html>

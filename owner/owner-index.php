@@ -88,13 +88,8 @@ include("engine.php");
                   <input type="text" class="form-control" id="address" value="<?php echo $rows['address']; ?>" name="address" required>
                 </div>
                 <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" required>
-                <small id="passwordError" class="form-text text-danger"></small>
-               </div>
-                <div class="form-group">
       <label for="id_type">Type of ID:</label>
-      <input type="text" class="form-control" value="<?php echo $rows['id_type']; ?>" name="id_type"  required>
+      <input type="text" class="form-control" value="<?php echo $rows['id_type']; ?>" name="id_type" readonly required>
     </div>
     <div class="form-group">
       <label>Your Id:</label><br>
@@ -176,7 +171,7 @@ include("engine.php");
 
 
 <?php
-        echo '<a href="send-message.php?owner_id='.$owner_id.'&rental_id='.$rental_id.'&email='.$u_email.'">'.$rows["full_name"].'</a>';
+        //echo '<a href="send-message.php?owner_id='.$owner_id.'&rental_id='.$rental_id.'">'.$rows["full_name"].'</a>';
     }
   }}}}}?>
     </div>
@@ -501,7 +496,7 @@ const areaOptions = {
 
 
 
-<!-- --------------------------------------------Update property----------------------------------------------------------------- -->
+
 
 
 
@@ -520,6 +515,8 @@ const areaOptions = {
                   <th>Street No</th>
                   <th>Contact No.</th>
                   <th>Property Type</th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
                   <th>Estmated Price</th>
                   <th>Total Rooms</th>
                   <th>Bedroom</th>
@@ -547,6 +544,8 @@ const areaOptions = {
                   <td><?php echo $rows['Street_No'] ?></td>
                   <td><?php echo $rows['contact_no'] ?></td>
                   <td><?php echo $rows['property_type'] ?></td>
+                  <td><?php echo $rows['latitude'] ?></td>
+                  <td><?php echo $rows['longitude'] ?></td>
                   <td>Rs.<?php echo $rows['estimated_price'] ?></td>
                   <td><?php echo $rows['total_rooms'] ?></td>
                   <td><?php echo $rows['bedroom'] ?></td>
@@ -566,7 +565,7 @@ const areaOptions = {
                 <form method="GET" action="delete.php">
                 <td>
                   <input type="hidden" name="property_id" value="<?php echo $rows['property_id']; ?>">
-                  <a data-toggle="pill" class="btn btn-success" name="edit_property" onclick="<?php $property_id = $rows['property_id'] ?>" href="#menu5">Edit</a><br><br><input type="submit" class="btn btn-danger" name="delete_property" value="Delete" >
+                  <a data-toggle="pill" class="btn btn-success" name="edit_property" onclick="<?php $property_id = $rows['property_id'] ?>" href="#menu5">Edit</a><input type="submit" class="btn btn-danger" name="delete_property" value="Delete" >
                   </td>
                 </tr>
                 </form>
@@ -587,10 +586,16 @@ const areaOptions = {
       {
           while($rows=mysqli_fetch_assoc($result)){
           $property_id=$rows['property_id'];
-
        ?>
+
+
+
+
+<!-- _____________________________________________________________________UPDATE PROPERTY_________________________________________________________ -->
+
+
     <div id="menu5" class="tab-pane fade">
-      <center><h3>Edit Details</h3></center>
+      <center><h3>Edit Property Details</h3></center>
       <div class="container">
 
 <div id="map_canvas"></div>
@@ -598,15 +603,14 @@ const areaOptions = {
 <form method="POST" enctype="multipart/form-data">
           <div class="row">
         <div class="col-sm-6">
-           
             <div class="form-group">
               <label for="contact_no">Contact No.:</label>
               <input type="text" class="form-control" id="contact_no" placeholder="Enter Contact No." name="contact_no" value="<?php echo $rows['contact_no']?>">
             </div>
             <div class="form-group">
                <label for="property_type">Property Type:</label>
-                <select class="form-control" name="property_type" value="">
-                      <option value="<?php echo $rows['property_type'] ?>"><?php echo $rows['property_type'] ?></option>
+                <select class="form-control" name="property_type" value="<?php echo $rows['property_type'] ?>">
+                      <option value=""><?php echo $rows['property_type'] ?></option>
                       <option value="Full House Rent">Full House Rent</option>
                       <option value="Flat Rent">Flat Rent</option>
                       <option value="Room Rent">Room Rent</option>
@@ -616,19 +620,20 @@ const areaOptions = {
                 <label for="estimated_price">Estimated Price:</label>
                 <input type="text" class="form-control" id="estimated_price" placeholder="Enter Estimated Price" name="estimated_price" min=1000 value="<?php echo $rows['estimated_price'] ?>">
             </div>
-      
-
-                  <div class="form-group">
+            <div class="form-group">
                     <label for="total_rooms">Total No. of Rooms:</label>
                     <input type="number" class="form-control" id="total_rooms" placeholder="Enter Total No. of Rooms" name="total_rooms" min=1 value="<?php echo $rows['total_rooms'] ?>">
                   </div>
+        </div>
+
+        <div class="col-sm-6">
                   <div class="form-group">
                     <label for="bedroom">No. of Bedroom:</label>
-                    <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" value="<?php echo $rows['bedroom'] ?>">
+                    <input type="number" class="form-control" id="bedroom" placeholder="Enter No. of Bedroom" name="bedroom" min=1 value="<?php echo $rows['bedroom'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="living_room">No. of Living Room:</label>
-                    <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room"  value="<?php echo $rows['living_room'] ?>">
+                    <input type="number" class="form-control" id="living_room" placeholder="Enter No. of Living Room" name="living_room" min=0  value="<?php echo $rows['living_room'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="kitchen">No. of Kitchen:</label>
@@ -642,20 +647,11 @@ const areaOptions = {
                   <table class="table table-bordered" border="0">  
                   <tr> 
                   </tr>  
-                  <div class="form-group">
-                    <label for="Booked">Booked:</label>
-                    <select class="form-control" name="booked" >
-                      <option value="<?php echo $rows['booked'] ?>"><?php echo $rows['booked'] ?></option>
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
-                </select>                  </div>
-                </table>
                 <input name="lat" type="text" id="lat" hidden>
                 <input name="lng" type="text" id="lng" hidden>
                   <hr>
                   <div class="form-group">
-                    <br>
-                    <input type="submit" class="btn btn-primary btn-lg col-lg-12" value="Update Property" name="update_property">
+                    <center><input type="submit" class="btn btn-primary btn-lg col-lg-12" value="Update Property" name="update_property"></center>
                   </div>
                 </div>
               </div>
@@ -684,27 +680,6 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
 ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- -----------------------------------------------------------------------Bookked Property________________________________________________________________ -->
 <div id="menu6" class="tab-pane fade">
       <center><h3>Booked Property</h3></center>
       <div class="container">
@@ -712,11 +687,12 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 
               <table id="myTable">
                 <tr class="header">
-                <th> Booked Property id</th>
                   <th>Booked By</th>
                   <th>Booker Address</th>
-                  <th>Booker Phone no</th>
-                  <th>Booked Date</th>
+                  <th>Property Ward No</th>
+                  <th>Property  Area</th>
+                  <th>Property street</th>
+
                 </tr>
 
       <?php 
@@ -741,8 +717,8 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
           while($ro=mysqli_fetch_assoc($result2)){
             $property_id=$ro['property_id'];
 
-        $sql="SELECT * from booking where property_id='$property_id'";
-        $result=mysqli_query($db,$sql);
+     //   $sql="SELECT * from booking where property_id='$property_id'";
+     //   $result=mysqli_query($db,$sql);
 
         if(mysqli_num_rows($result)>0)
       {
@@ -751,7 +727,6 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
        ?>
                 <tr>    
         <?php 
-        $rental_id=$rows['rental_id'];
         $rental_id=$rows['rental_id'];
         $property_id=$rows['property_id'];
         $sql1="SELECT *from rental where rental_id='$rental_id'";
@@ -762,12 +737,13 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
           
        ?>
 
-         <td> <?php echo $rows['property_id']?></td>
+
         <td><?php echo $row['full_name']; ?></td>
         <td><?php echo $row['address']; ?></td>
-        <td><?php echo $row['phone_no']; ?></td>
-        <td><?php echo $rows['Booked_date']; ?></td>
 
+                  <td><?php echo $row['city']; ?></td>
+                  <td><?php echo $row['ward_no']; ?></td>
+                  <td><?php echo $row['Area']; ?></td>
                 </tr>
               
                 <?php
