@@ -6,6 +6,7 @@ include('navbar.php');
 include('review-engine.php');
 include('booking-engine.php');
 ?>
+
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $startDate = $_POST['start-date'];
